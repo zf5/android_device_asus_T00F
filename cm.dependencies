@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "android_device_asus_ctp-common",
+    "target_path": "device/asus/ctp-common"
+  }
+]
