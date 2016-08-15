@@ -81,6 +81,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     media.stagefright.less-secure=true
 
 # Charger
+WITH_CM_CHARGER := false
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/asus/ctp-common/charger/images
 
