@@ -25,6 +25,7 @@ TARGET_BOARD_PLATFORM := clovertrail
 TARGET_BOOTLOADER_BOARD_NAME := clovertrail
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Specific headers
 TARGET_BOARD_KERNEL_HEADERS := device/asus/ctp-common/kernel-headers
