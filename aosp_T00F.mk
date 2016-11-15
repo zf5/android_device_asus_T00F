@@ -14,6 +14,23 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_T00F.mk \
-    $(LOCAL_DIR)/device.mk
+# Boot animation
+TARGET_SCREEN_WIDTH  := 720
+TARGET_SCREEN_HEIGHT := 1280
+
+# Inherit some common AOSP stuff.
+$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit device configuration
+$(call inherit-product, device/asus/T00F/device.mk)
+
+DEVICE_PACKAGE_OVERLAYS += device/asus/T00F/overlay
+
+PRODUCT_RUNTIMES := runtime_libart_default
+
+# Device identifier. This must come after all inclusions
+PRODUCT_NAME := aosp_T00F
+PRODUCT_BRAND := ASUS
+PRODUCT_MODEL := ASUS_T00F
+PRODUCT_MANUFACTURER := ASUS
+PRODUCT_DEVICE := T00F
