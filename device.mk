@@ -76,6 +76,10 @@ PRODUCT_PACKAGES += \
     pvr_drv_video \
     libshim_hwc
 
+# Flip Cover App
+PRODUCT_PACKAGES += \
+    FlipFlap
+
 # GPS
 PRODUCT_PACKAGES += \
     libshim_gps
