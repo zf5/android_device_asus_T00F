@@ -108,6 +108,6 @@ static void configure_zram() {
 
 void vendor_load_properties()
 {
-    get_serial();
+//    get_serial();
     configure_zram();
 }
