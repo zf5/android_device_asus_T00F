@@ -4,6 +4,7 @@ import /init.power.redhookbay.rc
 import /init.zram.rc
 
 on early-init
+    setenforce 0
     # set permission for charger-mode
     chmod 0750 /charger
     chown system system /dev/dri/card0

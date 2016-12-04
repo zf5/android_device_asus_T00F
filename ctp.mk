@@ -199,6 +199,7 @@ PRODUCT_PACKAGES += \
     init.redhookbay.rc \
     init.platform.usb.rc \
     init.power.redhookbay.rc \
+    init.product.rc \
     init.recovery.redhookbay.rc \
     init.watchdog.rc \
     init.wifi.rc \
