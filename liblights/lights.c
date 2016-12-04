@@ -35,9 +35,6 @@
 
 #define MAX_PATH_SIZE 80
 
-#define LED_LIGHT_OFF 0
-#define LED_LIGHT_ON 255
-
 enum {
     ATTENTION = 0,
     NOTIFICATION,
@@ -51,17 +48,11 @@ static struct light_state_t g_lights[LIGHT_MAX];
 
 char const*const LCD_FILE = "/sys/class/backlight/psb-bl/brightness";
 
-char const*const GREEN_LED_FILE
-        = "/sys/class/leds/green/brightness";
+char const*const LED_BRIGHT_FILE
+        = "/sys/class/leds/asus_led/brightness";
 
-char const*const RED_LED_FILE
-        = "/sys/class/leds/red/brightness";
-
-char const*const GREEN_BLINK_FILE
-        = "/sys/class/leds/green/blink";
-
-char const*const RED_BLINK_FILE
-        = "/sys/class/leds/red/blink";
+char const*const LED_BLINK_FILE
+        = "/sys/class/leds/asus_led/blink";
 
 /**
  * device methods
@@ -138,12 +129,16 @@ set_light_locked(struct light_state_t const* state)
     int red = 0;
     int green = 0;
     int blue = 0;
+    int brightness = 0;
     unsigned int colorRGB = state->color;
 
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
         case LIGHT_FLASH_HARDWARE:
-            blink = 1;
+            if (state->flashOffMS > 1000)
+                blink = 1; // 4s rate(slow)
+            else
+                blink = 2; // 2s rate(fast)
             break;
         case LIGHT_FLASH_NONE:
         default:
@@ -158,22 +153,17 @@ set_light_locked(struct light_state_t const* state)
     if (blue)
         green = red = blue;
 
-    ALOGD("set_light_locked colorRGB=%08X, red=%d, green=%d, blink=%d",
-            colorRGB, red, green, blink);
+    if (red)
+        brightness +=1;
+    if (green)
+        brightness +=2;
 
-    if (blink) {
-        write_int(RED_LED_FILE, LED_LIGHT_OFF);
-        write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
-        write_blink(RED_BLINK_FILE, (red ? 1 : 0), state->flashOnMS, state->flashOffMS);
-        write_blink(GREEN_BLINK_FILE, (green ? 1 : 0), state->flashOnMS, state->flashOffMS);
-    } else {
-        write_int(RED_BLINK_FILE, blink);
-        write_int(GREEN_BLINK_FILE, blink);
-        write_int(RED_LED_FILE, LED_LIGHT_OFF);
-        write_int(GREEN_LED_FILE, LED_LIGHT_OFF);
-        write_int(RED_LED_FILE, red);
-        write_int(GREEN_LED_FILE, green);
-    }
+    ALOGD("set_light_locked colorRGB=%08X, red=%d, green=%d, blink=%d, brightness=%d",
+            colorRGB, red, green, blink, brightness);
+
+    write_int(LED_BLINK_FILE, blink);
+    write_int(LED_BRIGHT_FILE, brightness);
+
 
     return 0;
 }

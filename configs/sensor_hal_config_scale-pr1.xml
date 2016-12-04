@@ -17,7 +17,7 @@
       <name>MODEL_LSM303DLHC 3-axis Accelerometer</name>
       <vendor>STMicroelectronics</vendor>
       <version>1</version>
-      <maxRange unit="GRAVITY_EARTH">4</maxRange>
+      <maxRange unit="GRAVITY_EARTH">2</maxRange>
       <resolution unit="GRAVITY_EARTH">0.001</resolution>
       <power>0.11</power>
       <minDelay>10000</minDelay>
@@ -84,7 +84,7 @@
       <name>MODEL_LSM303DLHC 3-axis Magnetic field sensor</name>
       <vendor>STMicroelectronics</vendor>
       <version>1</version>
-      <maxRange>800.0</maxRange>
+      <maxRange>250.0</maxRange>
       <resolution>0.15</resolution>
       <power>0.1</power>
       <minDelay>20000</minDelay>

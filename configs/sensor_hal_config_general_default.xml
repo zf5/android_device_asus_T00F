@@ -4,12 +4,12 @@
   <accelerometer>
     <platform_config>
       <name>accel</name>
-      <activate_path>/sys/bus/i2c/devices/5-0019/lis3dh/enable</activate_path>
-      <poll_path>/sys/bus/i2c/devices/5-0019/lis3dh/poll</poll_path>
+      <activate_path>/sys/bus/i2c/devices/5-0019/enable</activate_path>
+      <poll_path>/sys/bus/i2c/devices/5-0019/poll</poll_path>
       <data_path></data_path>
       <config_path></config_path>
       <mapper axis_x="Y" axis_y="X" axis_z="Z"></mapper>
-      <scale axis_x="-1.0" axis_y="1.0" axis_z="-1.0"></scale>
+      <scale axis_x="-1.0" axis_y="-1.0" axis_z="1.0"></scale>
       <range min="0" max="0"></range>
       <min_delay>0</min_delay>
     </platform_config>
@@ -17,7 +17,7 @@
       <name>MODEL_LSM303DLHC 3-axis Accelerometer</name>
       <vendor>STMicroelectronics</vendor>
       <version>1</version>
-      <maxRange unit="GRAVITY_EARTH">4</maxRange>
+      <maxRange unit="GRAVITY_EARTH">2</maxRange>
       <resolution unit="GRAVITY_EARTH">0.001</resolution>
       <power>0.11</power>
       <minDelay>10000</minDelay>
@@ -25,10 +25,10 @@
   </accelerometer>
   <light>
     <platform_config>
-      <name>light</name>
-      <activate_path>/dev/apds990x_lsensor</activate_path>
-      <poll_path></poll_path>
-      <data_path>/dev/apds990x_lsensor</data_path>
+      <name>apds990x_als</name>
+      <activate_path>/sys/bus/i2c/devices/5-0039/apds990x_als/enable</activate_path>
+      <poll_path>/sys/bus/i2c/devices/5-0039/apds990x_als/poll</poll_path>
+      <data_path></data_path>
       <config_path></config_path>
       <mapper axis_x="X" axis_y="Y" axis_z="Z"></mapper>
       <scale axis_x="1.0" axis_y="1.0" axis_z="1.0"></scale>
@@ -47,11 +47,11 @@
   </light>
   <proximity>
     <platform_config>
-      <name>proximity</name>
-      <activate_path>/dev/apds990x_psensor</activate_path>
-      <poll_path>0</poll_path>
-      <data_path>/sys/bus/i2c/devices/5-0039/prox0_raw</data_path>
-      <config_path>/sys/bus/i2c/devices/5-0039/prox0_thresh_above_value</config_path>
+      <name>apds990x_ps</name>
+      <activate_path>/sys/bus/i2c/devices/5-0039/apds990x_ps/enable</activate_path>
+      <poll_path>/sys/bus/i2c/devices/5-0039/apds990x_ps/poll</poll_path>
+      <data_path>/sys/bus/i2c/devices/5-0039/apds990x_ps/rawdata</data_path>
+      <config_path>/sys/bus/i2c/devices/5-0039/apds990x_ps/thresh</config_path>
       <mapper axis_x="X" axis_y="Y" axis_z="Z"></mapper>
       <scale axis_x="1.0" axis_y="1.0" axis_z="1.0"></scale>
       <range min="0" max="0"></range>
@@ -70,8 +70,8 @@
   <compass>
     <platform_config>
       <name>lsm303cmp</name>
-      <activate_path>/sys/bus/i2c/devices/5-001e/lsm303cmp/enable</activate_path>
-      <poll_path>/sys/bus/i2c/devices/5-001e/lsm303cmp/poll</poll_path>
+      <activate_path>/sys/bus/i2c/devices/5-001e/enable</activate_path>
+      <poll_path>/sys/bus/i2c/devices/5-001e/poll</poll_path>
       <data_path></data_path>
       <config_path>/data/compass.conf</config_path>
       <mapper axis_x="Y" axis_y="X" axis_z="Z"></mapper>
@@ -84,7 +84,7 @@
       <name>MODEL_LSM303DLHC 3-axis Magnetic field sensor</name>
       <vendor>STMicroelectronics</vendor>
       <version>1</version>
-      <maxRange>800.0</maxRange>
+      <maxRange>250.0</maxRange>
       <resolution>0.15</resolution>
       <power>0.1</power>
       <minDelay>20000</minDelay>
@@ -97,8 +97,8 @@
       <poll_path>/sys/bus/i2c/devices/5-0068/poll;/sys/bus/i2c/devices/5-006a/poll</poll_path>
       <data_path></data_path>
       <config_path>/data/gyro.conf</config_path>
-      <mapper axis_x="Y" axis_y="X" axis_z="Z"></mapper>
-      <scale axis_x="1.0" axis_y="1.0" axis_z="-1.0"></scale>
+      <mapper axis_x="X" axis_y="Y" axis_z="Z"></mapper>
+      <scale axis_x="1.0" axis_y="1.0" axis_z="1.0"></scale>
       <range min="0" max="0"></range>
       <min_delay>10000000</min_delay>
     </platform_config>

@@ -210,7 +210,10 @@ PRODUCT_PACKAGES += \
     libshim_sensors
 
 PRODUCT_COPY_FILES += \
-    device/asus/ctp-common/configs/sensor_hal_config_default.xml:system/etc/sensor_hal_config_default.xml
+    device/asus/ctp-common/configs/sensor_hal_config_default.xml:system/etc/sensor_hal_config_default.xml \
+    device/asus/ctp-common/configs/sensor_hal_config_general_default.xml:system/etc/sensor_hal_config_general_default.xml \
+    device/asus/ctp-common/configs/sensor_hal_config_general_scale-pr1.xml:system/etc/sensor_hal_config_general_scale-pr1.xml \
+    device/asus/ctp-common/configs/sensor_hal_config_scale-pr1.xml:system/etc/sensor_hal_config_scale-pr1.xml 
 
 # pvr
 PRODUCT_PACKAGES += \
