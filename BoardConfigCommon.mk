@@ -53,7 +53,7 @@ BOARD_KERNEL_CMDLINE += watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:x
 BOARD_KERNEL_CMDLINE += androidboot.serialno=012345678901234567890123456789
 BOARD_KERNEL_CMDLINE += snd_pcm.maximum_substreams=8 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on
 BOARD_KERNEL_CMDLINE += debug_locks=0
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 TARGET_RECOVERY_UPDATER_LIBS += libintel_updater
 TARGET_RECOVERY_UPDATER_EXTRA_LIBS += liboempartitioning_static
