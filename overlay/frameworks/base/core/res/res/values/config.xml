@@ -90,6 +90,13 @@
         <item>mobile_emergency,15,0,2,-1,true</item>
     </string-array>
 
+    <string-array name="radioAttributes">
+        <item>1,1</item>
+        <item>0,1</item>
+        <item>7,1</item>
+        <item>9,1</item>
+    </string-array>
+
     <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
     <integer name="config_wifi_supplicant_scan_interval">40000</integer>
 
@@ -137,13 +144,10 @@
         <item>lte:655360,1310720,2621440,327680,655360,1310720</item>
     </string-array>
 
-<!--
-# Oh, oh, what is this?  Hell for sim support?
-#    <string-array name="config_serialPorts">
-#        <item>/dev/gsmtty19</item>
-#        <item>/dev/gsmtty83</item>
-#    </string-array>
--->
+
+    <string-array name="config_serialPorts">
+        <item>/dev/gsmtty19</item>
+    </string-array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -364,8 +368,9 @@
     <!-- The RadioAccessFamilies supported by the device. + Empty is
          viewed as "all".  Only used on devices which + don't support
          RIL_REQUEST_GET_RADIO_CAPABILITY + format is UMTS|LTE|... -->
-    <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|HSPAP|GSM|TD_SCDMA|WCDMA</string>
+    <string name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPA|HSPAP|GSM|TD_SCDMA|WCDMA|LTE</string>
 
+	<bool name="config_restart_radio_on_pdp_fail_regular_deactivation">false</bool>
     <!-- Set this to true to enable the platform's auto-power-save modes like doze and
          app standby.  These are not enabled by default because they require a standard
          cloud-to-device messaging service for apps to interact correctly with the modes

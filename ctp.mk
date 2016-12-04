@@ -96,14 +96,10 @@ PRODUCT_PACKAGES += \
 
 # Key layout files
 PRODUCT_COPY_FILES += \
-    device/asus/ctp-common/keylayout/synaptics_dsx.idc:system/usr/idc/$(BOARD_TOUCHSCREEN_DRIVER).idc \
-    device/asus/ctp-common/keylayout/synaptics_dsx.kcm:system/usr/keychars/$(BOARD_TOUCHSCREEN_DRIVER).kcm \
-    device/asus/ctp-common/keylayout/synaptics_dsx.kl:system/usr/keylayout/$(BOARD_TOUCHSCREEN_DRIVER).kl \
     device/asus/ctp-common/keylayout/cloverview_audio_Intel_MID_Audio_Jack.kl:system/usr/keylayout/cloverview_audio_Intel_MID_Audio_Jack.kl \
     device/asus/ctp-common/keylayout/ASUS_TransKeyboard.kl:system/usr/keylayout/ASUS_TransKeyboard.kl \
     device/asus/ctp-common/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/asus/ctp-common/keylayout/Vendor_0b05_Product_17fc.kl:system/usr/keylayout/Vendor_0b05_Product_17fc.kl \
-    device/asus/ctp-common/keylayout/Vendor_0b05_Product_1803.kl:system/usr/keylayout/Vendor_0b05_Product_1803.kl
+    device/asus/ctp-common/keylayout/focal-touchscreen.kl:system/usr/keylayout/focal-touchscreen.kl 
 
 # Keystore
 PRODUCT_PACKAGES += \
@@ -180,6 +176,7 @@ PRODUCT_PACKAGES += \
     config_init.sh \
     fstab.redhookbay \
     init.avc.rc \
+    init.asus.rc \
     init.bt.rc \
     init.bt.vendor.rc \
     init.class_main.sh \
