@@ -79,10 +79,18 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     device/asus/ctp-common/configs/gps.conf:system/etc/gps.conf \
-    device/asus/ctp-common/configs/gpsconfig.xml:system/etc/gpsconfig.xml
+    device/asus/ctp-common/configs/gps.xml:system/etc/gps.xml \
+    device/asus/ctp-common/configs/gps_logcat.xml:system/etc/gps_logcat.xml \
+    device/asus/ctp-common/configs/gps_rs.xml:system/etc/gps_rs.xml \
+    device/asus/ctp-common/configs/gps_spirent.xml:system/etc/gps_spirent.xml \
+    device/asus/ctp-common/configs/gps_spirent_areaid.xml:system/etc/gps_spirent_areaid.xml \
+    device/asus/ctp-common/configs/gps_spirent_hslp.xml:system/etc/gps_spirent_hslp.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.spid.gps.tty=ttyMFD3
+    ro.spid.gps.pmm=disabled \
+    ro.spid.gps.tty=ttyMFD3 \
+    ro.spid.gps.FrqPlan=FRQ_PLAN_26MHZ_2PPM \
+    ro.spid.gps.RfType=GL_RF_4752_BRCM_EXT_LNA
 
 # Houdini (arm native bridge)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -261,10 +269,6 @@ PRODUCT_COPY_FILES += \
     device/asus/ctp-common/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 $(call inherit-product-if-exists, vendor/asus/ctp-common/ctp-common-vendor.mk)
-
-# stlport required for our LP blobs
-PRODUCT_PACKAGES += \
-    libstlport
 
 # Intel_updater
 PRODUCT_PACKAGES += \
