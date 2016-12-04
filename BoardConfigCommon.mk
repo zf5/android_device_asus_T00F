@@ -169,6 +169,9 @@ BUILD_WITH_CHAABI_SUPPORT := true
 # SELinux
 BOARD_SEPOLICY_DIRS += device/asus/ctp-common/sepolicy
 
+# DT2W
+TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-0/0-0038/dclick_mode"
+
 # Wifi
 BOARD_WLAN_DEVICE           := bcmdhd
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)

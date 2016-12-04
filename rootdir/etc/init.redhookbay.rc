@@ -254,8 +254,6 @@ on post-fs
 # Permissions for Touch Proximity node
     chown system system /proc/asus_touch_proximity_status
 
-# Permissions for Touch Glove Mode
-    chown system system /sys/bus/i2c/devices/i2c-0/0-0020/input/input1/glove_mode
 
 # Permissions for Touch dclick Mode
     chown system radio /sys/bus/i2c/devices/i2c-0/0-0038/dclick_mode
