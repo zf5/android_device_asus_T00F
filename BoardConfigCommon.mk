@@ -38,6 +38,8 @@ TARGET_RELEASETOOL_MAKE_RECOVERY_PATCH_SCRIPT := ./device/asus/ctp-common/make_r
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_MKBOOTIMG := pack_intel
 BOARD_CUSTOM_BOOTIMG_MK := device/asus/ctp-common/mkbootimg.mk
+DEVICE_BASE_BOOT_IMAGE := device/asus/$(TARGET_DEVICE)/base_images/boot.img
+DEVICE_BASE_RECOVERY_IMAGE := device/asus/$(TARGET_DEVICE)/base_images/recovery.img
 NEED_KERNEL_MODULE_ROOT := true
 
 # Inline kernel building
