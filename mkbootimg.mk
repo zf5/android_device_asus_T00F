@@ -29,22 +29,22 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_kernel) \
 		$(recovery_ramdisk)
 	$(call pretty,"Target recovery image: $@")
-	@echo -e ${CL_CYN}"----- Making recovery osimage ------"${CL_RST}
-	@echo -e ${CL_CYN}"----- checking cmdline ------"${CL_RST}
+	@echo "----- Making recovery osimage ------"${CL_RST}
+	@echo "----- checking cmdline ------"${CL_RST}
 	@echo $(BOARD_KERNEL_CMDLINE) > $(PRODUCT_OUT)/cmdline
 	$(MKBOOTIMG) $(BASE_RECOVERY_IMAGE) $(recovery_kernel) $(recovery_ramdisk) $(cmdline) $@
-	@echo -e ${CL_CYN}"Made recovery image: $@"${CL_RST}
+	@echo "Made recovery image: $@"${CL_RST}
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE))
 
 $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) \
 		$(INSTALLED_KERNEL_TARGET) \
 		$(INSTALLED_RAMDISK_TARGET)
 	$(call pretty,"Target boot image: $@")
-	@echo -e ${CL_CYN}"----- Making boot ramdisk ------"${CL_RST}
+	@echo "----- Making boot ramdisk ------"${CL_RST}
 	$(MKBOOTFS) $(TARGET_ROOT_OUT) | $(MINIGZIP) > $(INSTALLED_RAMDISK_TARGET)
-	@echo -e ${CL_CYN}"----- checking cmdline ------"${CL_RST}
+	@echo "----- checking cmdline ------"${CL_RST}
 	@echo $(BOARD_KERNEL_CMDLINE) > $(PRODUCT_OUT)/cmdline
-	@echo -e ${CL_CYN}"----- Making boot osimage ------"${CL_RST}
+	@echo "----- Making boot osimage ------"${CL_RST}
 	$(MKBOOTIMG) $(BASE_BOOT_IMAGE) $(INSTALLED_KERNEL_TARGET) $(INSTALLED_RAMDISK_TARGET) $(cmdline) $@
-	@echo -e ${CL_CYN}"Made boot image: $@"${CL_RST}
+	@echo "Made boot image: $@"${CL_RST}
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_BOOTIMAGE_PARTITION_SIZE))
