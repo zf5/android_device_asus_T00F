@@ -28,7 +28,7 @@ public final class CMActionsSettings {
 
     // Proc nodes
     private static final String TOUCHSCREEN_GESTURE_MODE_NODE =
-            "/sys/bus/i2c/devices/i2c-7/7-0038/ftsgesturemode";
+            "/sys/bus/i2c/devices/i2c-0/0-0038/gesture_mode";
 
     // Preference keys
     public static final String[] ALL_GESTURE_KEYS = {
