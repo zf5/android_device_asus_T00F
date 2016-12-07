@@ -26,7 +26,7 @@ on init
     chmod 0770 /dev/ug31xx
     chown system system /dev/ug31xx
 
-    export LD_SHIM_LIBS /system/bin/mmgr|libshim_mmgr.so:/system/bin/gpsd|libshim_gps.so:/system/lib/hw/gps.redhookbay.so|libshim_gps.so:/system/lib/hw/sensors.redhookbay.so|libshim_sensors.so:/system/lib/libtcs.so|libshim_tcs.so:/system/lib/libparameter.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsa_custom-subsystem.so|libshim_audio.so:/system/lib/hw/camera.vendor.redhookbay.so|libshim_camera.so
+    export LD_SHIM_LIBS "/system/bin/mmgr|libshim_mmgr.so:/system/bin/gpsd|libshim_gps.so:/system/lib/hw/gps.redhookbay.so|libshim_gps.so:/system/lib/hw/sensors.redhookbay.so|libshim_sensors.so:/system/lib/libtcs.so|libshim_tcs.so:/system/lib/libparameter.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsa_custom-subsystem.so|libshim_audio.so:/system/lib/hw/camera.vendor.redhookbay.so|libshim_camera.so:/system/lib/hw/hwcomposer.clovertrail.so|libshim_hwc.so"
 
     write /sys/class/graphics/fbcon/cursor_blink 0
     mkdir /data/system/ 0770 system system
@@ -92,9 +92,6 @@ on boot
 
 # Disable LTE coexistence RT (Real Time). Should be set to 0 to enable.
     setprop persist.service.cwsmgr.nortcoex 0
-
-# Set this property so surfaceflinger is not started by system_init
-    setprop system_init.startsurfaceflinger 0
 
 # Reboot in COS on shutdown request when charger is plugged
     setprop ro.rebootchargermode true
@@ -401,11 +398,11 @@ service media /system/bin/mediaserver
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
 
-service_redefine keystore /system/bin/keystore /data/misc/keystore
+service keystore /system/bin/keystore /data/misc/keystore
     class main
     user keystore
     group keystore drmrpc system
-    setenv LD_SHIM_LIBS /system/libbinder.so|libstock_crypto.so:/system/lib/hw/keystore.vendor.clovertrail.so|libstock_crypto.so
+    setenv LD_SHIM_LIBS "/system/libbinder.so|libstock_crypto.so:/system/lib/hw/keystore.vendor.clovertrail.so|libstock_crypto.so"
 
 # Workaround for broken incall audio
 service bootsnd /system/bin/tinyplay /system/etc/silence.wav -D 0 -d 0 -p 880
