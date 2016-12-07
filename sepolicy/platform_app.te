@@ -5,4 +5,4 @@ allow platform_app system_file:file execmod;
 allow platform_app battery_service:service_manager find;
 
 # service=batteryproperties
-allow platform_app healthd_service:service_manager find;
+# allow platform_app healthd_service:service_manager find;
