@@ -51,8 +51,8 @@ TARGET_KERNEL_CONFIG := cyanogenmod_$(TARGET_DEVICE)_defconfig
 
 BOARD_KERNEL_CMDLINE := init=/init pci=noearly loglevel=0 vmalloc=256M androidboot.hardware=redhookbay androidboot.selinux=permissive watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx androidboot.serialno=012345678901234567890123456789 snd_pcm.maximum_substreams=8 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on debug_locks=0
 
-TARGET_RECOVERY_UPDATER_LIBS += libintel_updater
-TARGET_RECOVERY_UPDATER_EXTRA_LIBS += liboempartitioning_static
+#TARGET_RECOVERY_UPDATER_LIBS += libintel_updater
+#TARGET_RECOVERY_UPDATER_EXTRA_LIBS += liboempartitioning_static
 
 # Adb
 BOARD_FUNCTIONFS_HAS_SS_COUNT := true
