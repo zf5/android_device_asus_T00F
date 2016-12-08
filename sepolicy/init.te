@@ -27,7 +27,7 @@ allow init ashmem_device:chr_file execute;
 allow init gpu_device:chr_file { write ioctl };
 allow init graphics_device:chr_file { write ioctl };
 
-allow init rootfs:file rw_file_perms;
+#allow init rootfs:file rw_file_perms;
 
 allow init app_data_file:file rw_file_perms;
 allow init app_data_file:dir { rw_dir_perms relabelto };
