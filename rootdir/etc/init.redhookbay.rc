@@ -391,18 +391,13 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 
 # From init.rc in stock, these redefine service definitions
 
-service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module --start
-    class core
-    oneshot
-    user root
-
 service surfaceflinger /system/bin/surfaceflinger
     class core
     user system
     group graphics drmrpc readproc
     onrestart restart zygote
     writepid /dev/stune/foreground/tasks
-    setenv LD_SHIM_LIBS "/system/libbinder.so|libshim_hwc.so:/system/lib/hw/hwcomposer.clovertrail.so|libshim_hwc.so"
+    setenv LD_SHIM_LIBS "/system/lib/libui.so|libshim_hwc.so:/system/lib/hw/hwcomposer.clovertrail.so|libshim_hwc.so"
 
 service media /system/bin/mediaserver
     class main
@@ -415,7 +410,7 @@ service keystore /system/bin/keystore /data/misc/keystore
     class main
     user keystore
     group keystore drmrpc system
-    setenv LD_SHIM_LIBS "/system/libbinder.so|libstock_crypto.so:/system/lib/hw/keystore.vendor.clovertrail.so|libstock_crypto.so"
+    setenv LD_SHIM_LIBS "/system/lib/libbinder.so|libstock_crypto.so:/system/lib/hw/keystore.vendor.clovertrail.so|libstock_crypto.so"
 
 # Workaround for broken incall audio
 service bootsnd /system/bin/tinyplay /system/etc/silence.wav -D 0 -d 0 -p 880

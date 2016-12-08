@@ -5,8 +5,8 @@ allow recovery gpu_device:chr_file { rw_file_perms setattr };
 recovery_only(`
     allow recovery rootfs:dir { rw_dir_perms create relabelfrom relabelto setattr };
     allow recovery rootfs:lnk_file { create_file_perms relabelfrom relabelto }; 
-    allow recovery rootfs:file create_file_perms;
-    allow recovery rootfs:file rx_file_perms;
+#    allow recovery rootfs:file create_file_perms;
+#    allow recovery rootfs:file rx_file_perms;
     allow recovery sysfs_devices_system_cpu:file rw_file_perms;
     allow recovery kernel:system module_request;
     allow recovery vfat:file r_file_perms;
@@ -18,7 +18,7 @@ recovery_only(`
     allow recovery media_rw_data_file:dir { search open read };
     allow recovery vfat:dir rw_dir_perms;
     allow recovery media_rw_data_file:file { open read };
-    allow recovery rootfs:file rx_file_perms;
+#    allow recovery rootfs:file rx_file_perms;
     allow recovery device:file create_file_perms;
 #name="mmcblk0p4"
 allow init block_device:blk_file write;
