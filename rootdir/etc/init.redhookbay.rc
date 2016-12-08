@@ -363,7 +363,7 @@ service upi_ug31xx /system/bin/upi_ug31xx
     class core
     user system
     group system
-    seclabel u:r:asus_config:s0
+#    seclabel u:r:asus_config:s0
 
 #Turn on VPROG2 Power rail to avoid power leakage in Sensor
 
@@ -390,6 +390,19 @@ service iprenew_eth0 /system/bin/dhcpcd -n
     oneshot
 
 # From init.rc in stock, these redefine service definitions
+
+service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module --start
+    class core
+    oneshot
+    user root
+
+service surfaceflinger /system/bin/surfaceflinger
+    class core
+    user system
+    group graphics drmrpc readproc
+    onrestart restart zygote
+    writepid /dev/stune/foreground/tasks
+    setenv LD_SHIM_LIBS "/system/libbinder.so|libshim_hwc.so:/system/lib/hw/hwcomposer.clovertrail.so|libshim_hwc.so"
 
 service media /system/bin/mediaserver
     class main

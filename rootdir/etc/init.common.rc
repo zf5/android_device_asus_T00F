@@ -171,11 +171,6 @@ service bcu_cpufreqrel /system/bin/bcu_cpufreqrel
     oneshot
     disabled
 
-service pvrsrvctl /system/vendor/bin/pvrsrvctl --no-module --start
-    class core
-    oneshot
-    user root
-
 service charger_app /charger
     class charger
     user root
