@@ -1,125 +1,16 @@
 on post-fs-data
 
-    mkdir /data/gps 0770 gps system
+    mkdir /data/gps 771 system system
+    chown system system /data/gps
 
-on post-fs
-
-    # nStandby GPIO
-    chmod 0660 /sys/devices/platform/intel_mid_gps/intel_mid_gps/enable
-    chown gps gps /sys/devices/platform/intel_mid_gps/intel_mid_gps/enable
-
-on property:ro.spid.gps.tty=ttyMFD1
-    chmod 0660 /dev/ttyMFD1
-    chown gps gps /dev/ttyMFD1
-    chmod 0660 /sys/class/tty/ttyMFD1/../../power/control
-    chown system system /sys/class/tty/ttyMFD1/../../power/control
-    mkdir /dev/gps 0770 gps system
-    symlink /dev/ttyMFD1 /dev/gps/ttyGPS
-    symlink /sys/class/tty/ttyMFD1/../../power/control /dev/gps/ttyGPSPowerControl
-
-on property:ro.spid.gps.tty=ttyMFD3
-    chmod 0660 /dev/ttyMFD3
-    chown gps gps /dev/ttyMFD3
-    chmod 0660 /sys/class/tty/ttyMFD3/../../power/control
-    chown system system /sys/class/tty/ttyMFD3/../../power/control
-    mkdir /dev/gps 0770 gps system
-    symlink /dev/ttyMFD3 /dev/gps/ttyGPS
-    symlink /sys/class/tty/ttyMFD3/../../power/control /dev/gps/ttyGPSPowerControl
-
-on property:ro.spid.gps.tty=ttyS2
-    chmod 0660 /dev/ttyS2
-    chown gps gps /dev/ttyS2
-    chmod 0660 /sys/class/tty/ttyS2/../../power/control
-    chown system system /sys/class/tty/ttyS2/../../power/control
-    mkdir /dev/gps 0770 gps system
-    symlink /dev/ttyS2 /dev/gps/ttyGPS
-    symlink /sys/class/tty/ttyS2/../../power/control /dev/gps/ttyGPSPowerControl
-
-on property:persist.asus.agps.spirent=areaid
-    stop gpsd
-    stop gpsd_spirent
-    stop gpsd_hslp
-    stop gpsd_logcat
-    stop gpsd_rs
-    start gpsd_areaid
-
-on property:persist.asus.agps.spirent=hslp
-    stop gpsd
-    stop gpsd_spirent
-    stop gpsd_areaid
-    stop gpsd_logcat
-    stop gpsd_rs
-    start gpsd_hslp
-
-on property:persist.asus.agps.spirent=logcat
-    stop gpsd
-    stop gpsd_spirent
-    stop gpsd_areaid
-    stop gpsd_hslp
-    stop gpsd_rs
-    start gpsd_logcat
-
-on property:persist.asus.agps.spirent=0
-    stop gpsd_spirent
-    stop gpsd_areaid
-    stop gpsd_hslp
-    stop gpsd_logcat
-    stop gpsd_rs
-    start gpsd
-
-on property:persist.asus.agps.spirent=1
-    stop gpsd
-    stop gpsd_areaid
-    stop gpsd_hslp
-    stop gpsd_logcat
-    stop gpsd_rs
-    start gpsd_spirent
-
-on property:persist.asus.agps.spirent=rs
-    stop gpsd
-    stop gpsd_spirent
-    stop gpsd_areaid
-    stop gpsd_hslp
-    stop gpsd_logcat
-    start gpsd_rs
-
-#service gpscerd /system/bin/gpscerd /data/gps/gps.cer
-#    class main
-#    user system
-#    group system
-#    oneshot
-
-service gpsd /system/bin/gpsd -c /system/etc/gps.xml
+service gpsd /system/bin/gps_daemon.sh
     class main
     user gps
     group system inet radio sdcard_rw net_admin
+    seclabel u:r:gpsd:s0
 
-service gpsd_spirent /system/bin/gpsd -c /system/etc/gps_spirent.xml
-    class main
-    user gps
-    group system inet radio sdcard_rw net_admin    
-    disabled
-
-service gpsd_areaid /system/bin/gpsd -c /system/etc/gps_spirent_areaid.xml
-    class main
-    user gps
-    group system inet radio sdcard_rw net_admin
-    disabled
-
-service gpsd_hslp /system/bin/gpsd -c /system/etc/gps_spirent_hslp.xml
-    class main
-    user gps
-    group system inet radio sdcard_rw net_admin
-    disabled
-
-service gpsd_logcat /system/bin/gpsd -c /system/etc/gps_logcat.xml
-    class main
-    user gps
-    group system inet radio sdcard_rw net_admin
-    disabled
-
-service gpsd_rs /system/bin/gpsd -c /system/etc/gps_rs.xml
-    class main
-    user gps
-    group system inet radio sdcard_rw net_admin
-    disabled
+# Start GPS daemon
+service gps-daemon /system/bin/gps_lto.sh
+    class late_start
+    oneshot
+    seclabel u:r:gpsd:s0
