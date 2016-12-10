@@ -52,7 +52,7 @@
     <integer name="config_deviceHardwareWakeKeys">64</integer>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool name="config_wifi_dual_band_support">true</bool>
+    <bool name="config_wifi_dual_band_support">false</bool>
 
     <!-- Control the behavior when the user long presses the home button
              0 - Nothing
@@ -103,7 +103,7 @@
     </string-array>
 
     <!-- Integer indicating wpa_supplicant scan interval in milliseconds -->
-    <integer name="config_wifi_supplicant_scan_interval">40000</integer>
+    <integer name="config_wifi_supplicant_scan_interval">15000</integer>
 
     <!-- Integer indicating wpa_supplicant scan interval when p2p is connected in milliseconds -->
     <integer name="config_wifi_scan_interval_p2p_connected">3600000</integer>

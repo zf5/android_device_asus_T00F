@@ -401,7 +401,8 @@ service media /system/bin/mediaserver
 service keystore /system/bin/keystore /data/misc/keystore
     class main
     user keystore
-    group keystore drmrpc system
+    group keystore drmrpc readproc
+    writepid /dev/cpuset/foreground/tasks
     setenv LD_SHIM_LIBS "/system/lib/libbinder.so|libstock_crypto.so:/system/lib/hw/keystore.vendor.clovertrail.so|libstock_crypto.so"
 
 # Workaround for broken incall audio
