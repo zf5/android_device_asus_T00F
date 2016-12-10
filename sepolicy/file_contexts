@@ -74,6 +74,7 @@
 /dev/ttyMFD3                            u:object_r:gps_device:s0
 /system/bin/gps_daemon\.sh              u:object_r:gpsd_exec:s0
 /system/bin/gps_lto\.sh                 u:object_r:gpsd_exec:s0
+/system/bin/gpsd                        u:object_r:gpsd_exec:s0
 
 # Houdini
 /system/lib/arm/cpuinfo                 u:object_r:cpuinfo_file:s0
