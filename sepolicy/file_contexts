@@ -1,9 +1,7 @@
 # Asus config scripts / files
 /system/bin/bcu_cpufreqrel              u:object_r:asus_config_exec:s0
 /system/bin/init\.class_main\.sh          u:object_r:asus_config_exec:s0
-/system/bin/config_init\.sh              u:object_r:asus_config_exec:s0
 /system/bin/fg_conf                     u:object_r:asus_config_exec:s0
-/system/bin/init_config\.sh              u:object_r:asus_config_exec:s0
 /system/bin/logcontrol                  u:object_r:asus_config_exec:s0
 /system/bin/toolconnect                 u:object_r:asus_config_exec:s0
 /system/bin/fdcmts                      u:object_r:asus_config_exec:s0
@@ -71,8 +69,6 @@
 
 # GPS
 /dev/ttyMFD3                            u:object_r:gps_device:s0
-/system/bin/gps_daemon\.sh              u:object_r:gpsd_exec:s0
-/system/bin/gps_lto\.sh                 u:object_r:gpsd_exec:s0
 /system/bin/gpsd                        u:object_r:gpsd_exec:s0
 
 # Houdini

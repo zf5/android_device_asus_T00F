@@ -9,7 +9,6 @@ import init.gps.rc
 import init.compass.rc
 import init.bt.rc
 import init.modem.rc
-import init.config_init.rc
 import init.logtool.rc
 import init.product.rc
 import init.asus.rc
