@@ -145,14 +145,6 @@ on post-fs-data
     chmod 0774 /sys/bus/i2c/devices/5-000f/kxtj9_raw
     chmod 0774 /sys/bus/i2c/devices/5-000f/kxtj9_status
 
-    # adding Ecompass service
-service akmd  /system/bin/akmd09911 -m 3
-    class core
-    user system
-    group system misc input
-    #seclabel u:r:asus_compass_server:s0
-    oneshot
-
 # ASUS_BSP --- Peter_Lu "Akm09911 compass sensor & KXTJ9 Gsensor"
 
 #ASUS_BSP +++ widevine
