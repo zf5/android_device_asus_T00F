@@ -73,6 +73,7 @@ static int read_file2(const char *fname, char *data, int max_size)
         data[rc] = '\0';
     else
         data[0] = '\0';
+    data[strcspn(data, "\n")] = 0;
     close(fd);
 
     return 1;
