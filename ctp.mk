@@ -75,7 +75,7 @@ PRODUCT_PACKAGES += \
     libshim_hwc
 
 PRODUCT_COPY_FILES += \
-    device/asus/ctp-common/10surface:/system/etc/init.d/10surface
+    device/asus/ctp-common/surfaceflinger.sh:/system/bin/surfaceflinger.sh
 
 # GPS
 PRODUCT_PACKAGES += \

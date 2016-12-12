@@ -20,6 +20,8 @@ allow gpsd gps_data_file:fifo_file { unlink create setattr getattr rw_file_perms
 allow gpsd node:udp_socket { node_bind name_bind };
 allow gpsd port:tcp_socket name_connect;
 allow gpsd self:tcp_socket { getopt write read };
+allow gpsd proc:file { append getattr open};
+allow gpsd radio_sysfs_file:file { read write open };
 
 allow gpsd sysfs:file { setattr write };
 allow gpsd gps_device:chr_file { ioctl open read write };

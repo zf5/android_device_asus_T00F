@@ -1,3 +1,9 @@
 #============= surfaceflinger ==============
 allow surfaceflinger display_service:service_manager add;
 allow surfaceflinger display_service:service_manager find;
+allow surfaceflinger shell_exec:file { getattr read execute_no_trans };
+allow surfaceflinger toolbox_exec:file { getattr execute execute_no_trans open read };
+allow surfaceflinger ctl_default_prop:property_service set;
+allow surfaceflinger self:capability { dac_override net_admin sys_admin };
+allow surfaceflinger surfaceflinger_exec:file execute_no_trans;
+

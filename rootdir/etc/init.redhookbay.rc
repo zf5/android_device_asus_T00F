@@ -118,6 +118,8 @@ on boot
    chown media media /sys/kernel/debug/sst/sram_lpe_ia_mailbox
    chown media media /sys/kernel/debug/sst/lpe_stack
 
+   start surfaceflinger1
+
 on post-fs-data
     chown media_rw media_rw /data/media
 
@@ -403,6 +405,11 @@ service keystore /system/bin/keystore /data/misc/keystore
     group keystore drmrpc readproc
     writepid /dev/cpuset/foreground/tasks
     setenv LD_SHIM_LIBS "/system/lib/libbinder.so|libstock_crypto.so:/system/lib/hw/keystore.vendor.clovertrail.so|libstock_crypto.so"
+
+service surfaceflinger1 /system/bin/surfaceflinger.sh
+    user root
+    oneshot
+    disabled
 
 # Workaround for broken incall audio
 service bootsnd /system/bin/tinyplay /system/etc/silence.wav -D 0 -d 0 -p 880

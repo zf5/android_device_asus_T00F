@@ -14,7 +14,7 @@ auditallow asus_config net_radio_prop:property_service set;
 auditallow asus_config system_radio_prop:property_service set;
 
 allow asus_config asus_config_file:dir search;
-allow asus_config asus_config_file:file rw_file_perms;
+allow asus_config asus_config_file:file { rw_file_perms setattr };
 allow asus_config bluetooth_efs_file:dir r_dir_perms;
 allow asus_config bluetooth_efs_file:file { rw_file_perms setattr };
 allow asus_config device:dir write;
@@ -58,6 +58,6 @@ allow asus_config toolbox_exec:file rx_file_perms;
 ## Bat gauge
 ## path="/system/bin/upi_ug31xx"
 allow asus_config system_file:file x_file_perms;
-allow asus_config asus_config_device:chr_file rw_file_perms;
+allow asus_config asus_config_device:chr_file { rw_file_perms setattr };
 allow asus_config log_device:chr_file rw_file_perms;
 allow asus_config unlabeled:file rw_file_perms;

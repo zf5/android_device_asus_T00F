@@ -60,6 +60,7 @@
 /dev/pvr_sync				u:object_r:gpu_device:s0
 /dev/sw_sync                            u:object_r:graphics_device:s0
 /system/vendor/bin/pvrsrvctl            u:object_r:pvrsrvctl_exec:s0
+/system/bin/surfaceflinger.sh           u:object_r:surfaceflinger_exec:s0
 
 # DRM
 /dev/sep_sec_driver			u:object_r:asus_tee_device:s0

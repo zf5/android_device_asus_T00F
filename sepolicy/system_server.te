@@ -1,4 +1,6 @@
 #============= system_server ==============
+allow system_server asus_config_file:file { open read };
+allow system_server proc:file append;
 allow system_server asus_config_file:dir search;
 allow system_server asus_tee_device:chr_file r_file_perms;
 allow system_server efs_file:dir r_dir_perms;
