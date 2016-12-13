@@ -1,2 +1,1 @@
 #genfscon sepfs / u:object_r:sepfs:s0
-genfscon proc /synaptics_dsx         u:object_r:proc_synaptics_dsx:s0 

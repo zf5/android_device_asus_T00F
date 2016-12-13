@@ -24,7 +24,7 @@
 # /factory/t4k37[^/]*\.txt              u:object_r:media_efs_file:s0
 
 # Block devices
-/dev/block/mmcblk0p5                   u:object_r:config_block_device:s0
+/dev/block/mmcblk0p6                   u:object_r:config_block_device:s0
 /dev/block/by-name/boot                 u:object_r:boot_block_device:s0
 /dev/block/by-name/cache                u:object_r:cache_block_device:s0
 /dev/block/by-name/config               u:object_r:config_block_device:s0
@@ -40,8 +40,8 @@
 /dev/block/zram0                                               u:object_r:swap_block_device:s0
 
 # Needed to potentially fsck them
-/dev/block/mmcblk0p6                   u:object_r:cache_block_device:s0
-/dev/block/mmcblk0p10                   u:object_r:userdata_block_device:s0
+/dev/block/mmcblk0p12                   u:object_r:cache_block_device:s0
+/dev/block/mmcblk0p14                   u:object_r:userdata_block_device:s0
 
 # Bluetooth
 /config/bt(/.*)?                        u:object_r:bluetooth_efs_file:s0
@@ -61,6 +61,7 @@
 /dev/sw_sync                            u:object_r:graphics_device:s0
 /system/vendor/bin/pvrsrvctl            u:object_r:pvrsrvctl_exec:s0
 /system/bin/surfaceflinger.sh           u:object_r:surfaceflinger_exec:s0
+/sys/bus/i2c/devices/i2c-0/0-0038/gesture_mode u:object_r:sysfs_touchscreen:s0
 
 # DRM
 /dev/sep_sec_driver			u:object_r:asus_tee_device:s0
@@ -103,7 +104,6 @@
 /sys/kernel/modem_nvram/dump            u:object_r:radio_sysfs_file:s0
 /system/bin/mmgr                        u:object_r:rild_exec:s0
 /system/bin/nvm_server                  u:object_r:rild_exec:s0
-
 
 # Audio
 /dev/snd/.*                             u:object_r:audio_device:s0

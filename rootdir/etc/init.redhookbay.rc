@@ -259,10 +259,6 @@ on post-fs
 # Permissions for Touch Gesture Mode
     chown system system /sys/bus/i2c/devices/i2c-0/0-0020/input/input1/glove_mode
 
-     # Key disabler
-    chown root system /proc/synaptics_dsx/0dbutton
-    chmod 0660 /proc/synaptics_dsx/0dbutton
-
 # Permissions for Sdcard Power Node
 	chown system system /proc/asus_sd_power
 

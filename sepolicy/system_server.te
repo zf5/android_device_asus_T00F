@@ -41,8 +41,3 @@ allow system_server gps_data_file:file rw_file_perms;
 
 allow system_server sensors_device:chr_file r_file_perms;
 
-
-
-# For synaptics_dsx proc files
-allow system_server proc_synaptics_dsx:dir search;
-allow system_server proc_synaptics_dsx:file rw_file_perms;

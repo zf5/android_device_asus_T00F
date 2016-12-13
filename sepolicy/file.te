@@ -5,6 +5,9 @@ type asus_config_file, file_type;
 type bluetooth_config_file, file_type, data_file_type;
 type bluetooth_device, dev_type;
 
+# Display
+type sysfs_touchscreen, fs_type, sysfs_type;
+
 # Factory
 type factory_file, file_type, data_file_type;
 
@@ -33,5 +36,3 @@ type sysfs_thermal_writable, fs_type, sysfs_type;
 # WiFi
 type wifi_config_file, file_type, data_file_type;
 
-#type for proc files
-type proc_synaptics_dsx, fs_type; 
