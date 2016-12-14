@@ -38,7 +38,7 @@ import cyanogenmod.hardware.TouchscreenGesture;
 public class TouchscreenGestures {
 
     private static final String GESTURE_PATH =
-            "/sys/bus/i2c/devices/i2c-7/7-0038/ftsgesture_mode";
+            "/sys/bus/i2c/devices/i2c-0/0-0038/gesture_mode";
 
     // Id, name, keycode
     private static final TouchscreenGesture[] TOUCHSCREEN_GESTURES = {
