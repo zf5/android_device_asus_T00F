@@ -406,10 +406,3 @@ service surfaceflinger1 /system/bin/surfaceflinger.sh
     user root
     oneshot
     disabled
-
-# Workaround for broken incall audio
-service bootsnd /system/bin/tinyplay /system/etc/silence.wav -D 0 -d 0 -p 880
-    class late_start
-    user root
-    group audio
-    oneshot

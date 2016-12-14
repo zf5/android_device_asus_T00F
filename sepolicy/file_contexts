@@ -136,6 +136,3 @@
 # wifi
 /config/wifi(/.*)?                      u:object_r:wifi_config_file:s0
 
-/system/bin/tinyplay                    u:object_r:tinyplay_exec:s0
-/system/bin/tinymix                     u:object_r:tinyplay_exec:s0
-/system/bin/tinycap                     u:object_r:tinyplay_exec:s0
