@@ -63,7 +63,7 @@
 /dev/sw_sync                            u:object_r:graphics_device:s0
 /system/vendor/bin/pvrsrvctl            u:object_r:pvrsrvctl_exec:s0
 /system/bin/surfaceflinger.sh           u:object_r:surfaceflinger_exec:s0
-/sys/bus/i2c/devices/i2c-0/0-0038/gesture_mode u:object_r:sysfs_touchscreen:s0
+/sys/devices/pci0000:00/0000:00:00\.3/i2c-0/0-0038/gesture_mode u:object_r:sysfs_touchscreen:s0
 
 # DRM
 /dev/sep_sec_driver			u:object_r:asus_tee_device:s0
