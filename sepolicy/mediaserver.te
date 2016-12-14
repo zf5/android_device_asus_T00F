@@ -1,10 +1,11 @@
 allow mediaserver asus_config_file:dir { search read open };
 allow mediaserver asus_config_file:file { getattr open read };
 allow mediaserver proc:file write;
+allow mediaserver factory_file:dir { open read };
 allow mediaserver asus_tee_device:chr_file rw_file_perms;
 allow mediaserver graphics_device:dir search;
 allow mediaserver camera_device:chr_file rw_file_perms;
-allow mediaserver factory_file:dir search;
+allow mediaserver factory_file:dir { r_file_perms search };
 allow mediaserver factory_file:file r_file_perms;
 allow mediaserver media_rw_data_file:dir rw_dir_perms;
 allow mediaserver media_rw_data_file:file { create_file_perms rw_file_perms };
