@@ -26,6 +26,7 @@ allow asus_config factory_file:file { r_file_perms setattr };
 allow asus_config proc:file { r_file_perms };
 allow asus_config rootfs:dir { mounton r_dir_perms };
 allow asus_config rootfs:file { mounton r_file_perms };
+allow asus_config rootfs:lnk_file r_file_perms;
 allow asus_config sysfs:dir r_dir_perms;
 allow asus_config sysfs:file rw_file_perms;
 allow asus_config wifi_config_file:dir r_dir_perms;
