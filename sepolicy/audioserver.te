@@ -1,6 +1,6 @@
 allow audioserver config_file:dir { search getattr };
-allow audioserver asus_prop:file { read open getattr };
-allow audioserver config_file:file { getattr read open };
+allow audioserver asus_prop:file r_file_perms;
+allow audioserver config_file:file r_file_perms;
 allow audioserver tmpfs:dir search;
 allow audioserver asec_apk_file:dir search;
 allow audioserver factory_file:dir search;

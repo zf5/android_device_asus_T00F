@@ -35,7 +35,7 @@ allow asus_config self:capability sys_admin;
 
 # Customize does all sorts of config by running system() and until we
 # either reverse it or asus makes it saner, we can't do much about this:
-allow asus_config shell_exec:file { read execute open execute_no_trans getattr };
+allow asus_config shell_exec:file rx_file_perms;
 allow asus_config self:capability { fowner fsetid chown dac_override };
 allow asus_config toolbox_exec:file rx_file_perms;
 

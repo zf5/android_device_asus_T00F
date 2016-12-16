@@ -2,5 +2,5 @@
 # Allow netd to load modules
 allow netd kernel:system module_request;
 allow netd self:capability { sys_module fsetid };
-allow netd unlabeled:file { read open write getattr getattr };
+allow netd unlabeled:file rw_file_perms;
 

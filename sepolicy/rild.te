@@ -1,10 +1,10 @@
-allow rild config_file:dir { search write read remove_name add_name getattr open };
-allow rild config_file:lnk_file { getattr unlink create read };
-allow rild config_file:file { read open getattr write };
-allow rild asus_prop:file { read open getattr };
-allow rild factory_file:dir { search write read remove_name add_name getattr open };
-allow rild factory_file:lnk_file { getattr unlink create read };
-allow rild factory_file:file { read open getattr };
+allow rild config_file:dir rw_dir_perms;
+allow rild config_file:lnk_file create_file_perms;
+allow rild config_file:file rw_file_perms;
+allow rild asus_prop:file r_file_perms;
+allow rild factory_file:dir rw_dir_perms;
+allow rild factory_file:lnk_file create_file_perms;
+allow rild factory_file:file r_file_perms;
 allow rild proc:file write;
 allow rild device:dir r_dir_perms;
 allow rild proc_net:file w_file_perms;
