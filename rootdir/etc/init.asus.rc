@@ -48,6 +48,7 @@ on post-fs-data
     chmod 0775 /asusfw
     chown shell shell /asusfw
     restorecon_recursive /asusfw
+    restorecon_recursive /asusfw/modem
 
 # mount asusdata
 #    mkdir /data/asusdata 0660 root shell

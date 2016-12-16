@@ -1,6 +1,6 @@
-allow rild asus_config_file:dir { search write read remove_name add_name getattr open };
-allow rild asus_config_file:lnk_file { getattr unlink create read };
-allow rild asus_config_file:file { read open getattr };
+allow rild config_file:dir { search write read remove_name add_name getattr open };
+allow rild config_file:lnk_file { getattr unlink create read };
+allow rild config_file:file { read open getattr write };
 allow rild asus_prop:file { read open getattr };
 allow rild factory_file:dir { search write read remove_name add_name getattr open };
 allow rild factory_file:lnk_file { getattr unlink create read };

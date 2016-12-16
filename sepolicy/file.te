@@ -1,8 +1,7 @@
 # Asusconfig
-type asus_config_file, file_type;
+type config_file, file_type;
 
 # Bluetooth
-type bluetooth_config_file, file_type, data_file_type;
 type bluetooth_device, dev_type;
 
 # Display
@@ -33,6 +32,4 @@ type asus_tee_device, dev_type;
 type sysfs_coretemp, fs_type, sysfs_type;
 type sysfs_thermal_writable, fs_type, sysfs_type;
 
-# WiFi
-type wifi_config_file, file_type, data_file_type;
 

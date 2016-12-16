@@ -13,8 +13,8 @@ set_prop(asus_config, ctl_default_prop)
 auditallow asus_config net_radio_prop:property_service set;
 auditallow asus_config system_radio_prop:property_service set;
 
-allow asus_config asus_config_file:dir search;
-allow asus_config asus_config_file:file { rw_file_perms setattr };
+allow asus_config config_file:dir r_dir_perms;
+allow asus_config config_file:file { rw_file_perms setattr };
 allow asus_config bluetooth_efs_file:dir r_dir_perms;
 allow asus_config bluetooth_efs_file:file { rw_file_perms setattr };
 allow asus_config device:dir write;
@@ -29,8 +29,6 @@ allow asus_config rootfs:file { mounton r_file_perms };
 allow asus_config rootfs:lnk_file r_file_perms;
 allow asus_config sysfs:dir r_dir_perms;
 allow asus_config sysfs:file rw_file_perms;
-allow asus_config wifi_config_file:dir r_dir_perms;
-allow asus_config wifi_config_file:file { rw_file_perms setattr };
 
 # allow it to mount /local_cfg
 allow asus_config self:capability sys_admin;

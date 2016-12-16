@@ -1,5 +1,5 @@
-allow mediaserver asus_config_file:dir { search read open };
-allow mediaserver asus_config_file:file { getattr open read };
+allow mediaserver config_file:dir { search read open };
+allow mediaserver config_file:file { getattr open read };
 allow mediaserver proc:file write;
 allow mediaserver factory_file:dir { open read };
 allow mediaserver asus_tee_device:chr_file rw_file_perms;

@@ -10,6 +10,8 @@ allow init binfmt_miscfs:file w_file_perms;
 allow init tmpfs:lnk_file create_file_perms;
 allow init rootfs:lnk_file setattr;
 
+allow init rootfs:dir relabelto;
+
 # /cache/telephony/[12]
 allow init radio_cache_file:file rw_file_perms;
 allow init radio_cache_file:dir { rw_dir_perms relabelto };
