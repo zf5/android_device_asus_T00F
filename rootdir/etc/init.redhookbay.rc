@@ -401,3 +401,8 @@ service keystore /system/bin/keystore /data/misc/keystore
     group keystore drmrpc readproc
     writepid /dev/cpuset/foreground/tasks
     setenv LD_SHIM_LIBS "/system/lib/libbinder.so|libstock_crypto.so:/system/lib/hw/keystore.vendor.clovertrail.so|libstock_crypto.so"
+
+service surfaceflinger1 /system/bin/surfaceflinger.sh
+    user root
+    oneshot
+    disabled
