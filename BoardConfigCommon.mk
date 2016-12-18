@@ -124,9 +124,6 @@ INTEL_VA := true
 BUILD_WITH_FULL_STAGEFRIGHT := true
 BOARD_USES_VIDEO := true
 
-# Disable IMG RS GPU driver
-# OVERRIDE_RS_DRIVER := libPVRRS.so
-
 # enabled to carry out all drawing operations performed on a View's canvas with GPU for 2D rendering pipeline.
 USE_OPENGL_RENDERER := true
 
@@ -163,7 +160,6 @@ TARGET_POWERHAL_VARIANT := redhookbay
 BOARD_PROVIDES_LIBRIL := true
 
 # Recovery
-# BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_RECOVERY_FSTAB := device/asus/ctp-common/rootdir/etc/fstab.redhookbay
@@ -194,14 +190,3 @@ WIFI_DRIVER_FW_PATH_STA     := "/asusfw/wifi/fw_bcmdhd.bin"
 # Use the non-open-source parts, if they're present
 -include vendor/asus/ctp-common/BoardConfigVendor.mk
 
-# TWRP
-TW_THEME := portrait_hdpi
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-RECOVERY_SDCARD_ON_DATA := true
-TW_INCLUDE_CRYPTO := true
-TW_EXCLUDE_SUPERSU := true
-TW_NO_USB_STORAGE := true
-BOARD_HAS_NO_REAL_SDCARD := true
-TW_INCLUDE_NTFS_3G := true
-BOARD_SUPPRESS_EMMC_WIPE := true
-#RECOVERY_VARIANT := twrp
