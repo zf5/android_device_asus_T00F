@@ -74,9 +74,6 @@ PRODUCT_PACKAGES += \
     pvr_drv_video \
     libshim_hwc
 
-PRODUCT_COPY_FILES += \
-    device/asus/ctp-common/surfaceflinger.sh:/system/bin/surfaceflinger.sh
-
 # GPS
 PRODUCT_PACKAGES += \
     libshim_gps
