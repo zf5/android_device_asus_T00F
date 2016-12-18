@@ -118,8 +118,6 @@ on boot
    chown media media /sys/kernel/debug/sst/sram_lpe_ia_mailbox
    chown media media /sys/kernel/debug/sst/lpe_stack
 
-   start surfaceflinger1
-
 on post-fs-data
     chown media_rw media_rw /data/media
 
@@ -386,7 +384,12 @@ service iprenew_eth0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-# From init.rc in stock, these redefine service definitions
+service surfaceflinger /system/bin/surfaceflinger
+    class core
+    user root
+    group system graphics drmrpc readproc
+    onrestart restart zygote
+    writepid /dev/stune/foreground/tasks
 
 service media /system/bin/mediaserver
     class main
