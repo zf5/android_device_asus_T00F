@@ -14,7 +14,6 @@ import init.product.rc
 import init.asus.rc
 
 on early-init
-    setenforce 0
 # Set boot_min_cap for boot to Android.
     setprop ro.boot.min.cap 0
 
