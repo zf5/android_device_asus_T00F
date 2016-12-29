@@ -1,33 +1,8 @@
 #!/bin/bash
 
-function extract() {
-    for FILE in `egrep -v '(^#|^$)' $1`; do
-        OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
-        FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
-        DEST=${PARSING_ARRAY[1]}
-        if [ -z $DEST ]; then
-            DEST=$FILE
-        fi
-        DIR=`dirname $FILE`
-        if [ ! -d $2/$DIR ]; then
-            mkdir -p $2/$DIR
-        fi
-        if [ "$SRC" = "adb" ]; then
-            # Try CM target first
-            adb pull /system/$DEST $2/$DEST
-            # if file does not exist try OEM target
-            if [ "$?" != "0" ]; then
-                adb pull /system/$FILE $2/$DEST
-            fi
-        else
-            if [ -r $SRC/system/$DEST ]; then
-                cp $SRC/system/$DEST $2/$DEST
-            else
-                cp $SRC/system/$FILE $2/$DEST
-            fi
-        fi
-    done
-}
+#set -e
+export DEVICE=Z00D
+export VENDOR=asus
 
 if [ $# -eq 0 ]; then
   SRC=adb
@@ -45,13 +20,35 @@ else
   fi
 fi
 
-BASE=../../../vendor/$VENDOR/ctp-common/proprietary
+BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
 rm -rf $BASE/*
 
-DEVBASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-rm -rf $DEVBASE/*
-
-extract ../../$VENDOR/ctp-common/proprietary-files.txt $BASE
-extract ../../$VENDOR/$DEVICE/proprietary-files.txt $DEVBASE
+for FILE in `egrep -v '(^#|^$)' proprietary-files.txt`; do
+  OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+  FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
+  DEST=${PARSING_ARRAY[1]}
+  if [ -z $DEST ]
+  then
+    DEST=$FILE
+  fi
+  DIR=`dirname $DEST`
+  if [ ! -d $BASE/$DIR ]; then
+    mkdir -p $BASE/$DIR
+  fi
+  # Try CM target first
+  if [ "$SRC" = "adb" ]; then
+    adb pull /system/$DEST $BASE/$DEST
+    # if file does not exist try OEM target
+    if [ "$?" != "0" ]; then
+        adb pull /system/$FILE $BASE/$DEST
+    fi
+  else
+    if [ -r $SRC/system/$DEST ]; then
+        cp $SRC/system/$DEST $BASE/$DEST
+    else
+        cp $SRC/system/$FILE $BASE/$DEST
+    fi
+  fi
+done
 
 ./setup-makefiles.sh

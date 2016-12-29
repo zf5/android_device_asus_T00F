@@ -123,6 +123,15 @@
 /dev/i2c(.*)?                           u:object_r:i2c_device:s0
 /dev/psensor                            u:object_r:sensors_device:s0
 /dev/lsensor                            u:object_r:sensors_device:s0
+/system/bin/akmd09911                   u:object_r:akmd_exec:s0
+/dev/akm09911                           u:object_r:sensors_device:s0
+/dev/akm09911_dev                       u:object_r:sensors_device:s0
+/dev/cm3602                             u:object_r:sensors_device:s0
+/dev/kxtj9_dev                          u:object_r:sensors_device:s0
+/dev/asus_gsensor                       u:object_r:sensors_device:s0
+/dev/lightsensor                        u:object_r:sensors_device:s0
+/dev/socket/sensors                     u:object_r:sensors_socket:s0
+/data/misc/akmd_set.txt		        u:object_r:sensors_data_file:s0
 
 # thermal
 /sys/devices/platform/coretemp\.0/temp[2-5]_threshold[1-2]    u:object_r:sysfs_coretemp:s0
