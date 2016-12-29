@@ -48,7 +48,7 @@ NEED_KERNEL_MODULE_ROOT := true
 TARGET_KERNEL_SOURCE := kernel/asus/Z00D
 TARGET_KERNEL_ARCH := x86
 BOARD_KERNEL_IMAGE_NAME := bzImage
-TARGET_KERNEL_CONFIG := cyanogenmod_Z00D_defconfig
+TARGET_KERNEL_CONFIG := lineage_Z00D_defconfig
 
 BOARD_KERNEL_CMDLINE := init=/init pci=noearly console=ttyS0 console=logk0 earlyprintk=nologger bootup.uart=0 loglevel=8 kmemleak=off androidboot.bootmedia=sdcard androidboot.hardware=redhookbay watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx androidboot.serialno=01234567890123456789 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on vmalloc=172M
 
