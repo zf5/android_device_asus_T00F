@@ -272,6 +272,18 @@ PRODUCT_PACKAGES += \
     libcgpt_static \
     libintel_updater
 
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=320
+
+# Ramdisk config of governors
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.sys.perf.device.powersave=933000 \
+    ro.sys.perf.device.full=1600000 \
+    ro.sys.perf.device.touchboost=1333000
+
 # Add WiFi Firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
 
