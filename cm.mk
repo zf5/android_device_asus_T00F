@@ -10,8 +10,6 @@ $(call inherit-product, device/asus/Z00D/device.mk)
 
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/asus/Z00D/overlay
-
 PRODUCT_RUNTIMES := runtime_libart_default
 
 ## Device identifier. This must come after all inclusions
