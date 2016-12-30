@@ -1,5 +1,5 @@
 
-ifneq ($(filter Z00D,$(TARGET_DEVICE)),)
+ifneq ($(filter T00F,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 

@@ -9,7 +9,7 @@
       <data_path></data_path>
       <config_path></config_path>
       <mapper axis_x="Y" axis_y="X" axis_z="Z"></mapper>
-      <scale axis_x="-1.0" axis_y="1.0" axis_z="-1.0"></scale>
+      <scale axis_x="-1.0" axis_y="-1.0" axis_z="1.0"></scale>
       <range min="0" max="0"></range>
       <min_delay>0</min_delay>
     </platform_config>
@@ -97,8 +97,8 @@
       <poll_path>/sys/bus/i2c/devices/5-0068/poll;/sys/bus/i2c/devices/5-006a/poll</poll_path>
       <data_path></data_path>
       <config_path>/data/gyro.conf</config_path>
-      <mapper axis_x="Y" axis_y="X" axis_z="Z"></mapper>
-      <scale axis_x="1.0" axis_y="1.0" axis_z="-1.0"></scale>
+      <mapper axis_x="X" axis_y="Y" axis_z="Z"></mapper>
+      <scale axis_x="1.0" axis_y="1.0" axis_z="1.0"></scale>
       <range min="0" max="0"></range>
       <min_delay>10000000</min_delay>
     </platform_config>

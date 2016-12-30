@@ -29,7 +29,7 @@ import org.cyanogenmod.internal.util.FileUtils;
 
 public class KeyDisabler {
 
-    private static String CONTROL_PATH = "/sys/bus/i2c/devices/i2c-0/0-0038/keypad_mode";
+    private static String CONTROL_PATH = "/proc/synaptics_dsx/0dbutton";
 
     public static boolean isSupported() {
         return FileUtils.isFileWritable(CONTROL_PATH);

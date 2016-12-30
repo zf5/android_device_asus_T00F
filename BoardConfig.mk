@@ -26,29 +26,29 @@ TARGET_BOOTLOADER_BOARD_NAME := clovertrail
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
-TARGET_OTA_ASSERT_DEVICE := Z00D,ASUS_Z00D
+TARGET_OTA_ASSERT_DEVICE := T00F,T00F1,T00G,T00J,T00J1,ASUS_T00J,ASUS_T00G,ASUS_T00F,a600cg,a500cg,a501cg
 
 # Specific headers
-TARGET_BOARD_KERNEL_HEADERS := device/asus/Z00D/kernel-headers
-TARGET_SPECIFIC_HEADER_PATH := device/asus/Z00D/include
+TARGET_BOARD_KERNEL_HEADERS := device/asus/T00F/kernel-headers
+TARGET_SPECIFIC_HEADER_PATH := device/asus/T00F/include
 
 TARGET_DROIDBOOT_LIBS := libintel_droidboot
 
-TARGET_RELEASETOOL_MAKE_RECOVERY_PATCH_SCRIPT := ./device/asus/Z00D/make_recovery_patch
+TARGET_RELEASETOOL_MAKE_RECOVERY_PATCH_SCRIPT := ./device/asus/T00F/make_recovery_patch
 
 # OTA Packaging / Bootimg creation
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_MKBOOTIMG := pack_intel
-BOARD_CUSTOM_BOOTIMG_MK := device/asus/Z00D/mkbootimg.mk
-DEVICE_BASE_BOOT_IMAGE := device/asus/Z00D/base_images/boot.img
-DEVICE_BASE_RECOVERY_IMAGE := device/asus/Z00D/base_images/recovery.img
+BOARD_CUSTOM_BOOTIMG_MK := device/asus/T00F/mkbootimg.mk
+DEVICE_BASE_BOOT_IMAGE := device/asus/T00F/base_images/boot.img
+DEVICE_BASE_RECOVERY_IMAGE := device/asus/T00F/base_images/recovery.img
 NEED_KERNEL_MODULE_ROOT := true
 
 # Inline kernel building
-TARGET_KERNEL_SOURCE := kernel/asus/Z00D
+TARGET_KERNEL_SOURCE := kernel/asus/T00F
 TARGET_KERNEL_ARCH := x86
 BOARD_KERNEL_IMAGE_NAME := bzImage
-TARGET_KERNEL_CONFIG := lineage_Z00D_defconfig
+TARGET_KERNEL_CONFIG := lineage_T00F_defconfig
 
 BOARD_KERNEL_CMDLINE := init=/init pci=noearly console=ttyS0 console=logk0 earlyprintk=nologger bootup.uart=0 loglevel=8 kmemleak=off androidboot.bootmedia=sdcard androidboot.hardware=redhookbay watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx androidboot.serialno=01234567890123456789 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on vmalloc=172M
 
@@ -68,7 +68,7 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/asus/Z00D/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/asus/T00F/bluetooth
 
 # Camera
 INTEL_USE_CAMERA_UVC := true
@@ -94,7 +94,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # Hardware
-BOARD_HARDWARE_CLASS := device/asus/Z00D/cmhw
+BOARD_HARDWARE_CLASS := device/asus/T00F/cmhw
 
 # Healthd
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.clovertrail
@@ -114,7 +114,7 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 
 # Opengles
 BOARD_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH -DWORKAROUND_BUG_10194508
-BOARD_EGL_CFG := device/asus/Z00D/configs/egl.cfg
+BOARD_EGL_CFG := device/asus/T00F/configs/egl.cfg
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.opengles.version = 131072
@@ -131,7 +131,7 @@ TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_ctp
-TARGET_LIBINIT_DEFINES_FILE := device/asus/Z00D/init/init_ctp.cpp
+TARGET_LIBINIT_DEFINES_FILE := device/asus/T00F/init/init_ctp.cpp
 TARGET_INIT_UMOUNT_AND_FSCK_IS_UNSAFE := true
 
 # Lights
@@ -166,7 +166,7 @@ BOARD_PROVIDES_LIBRIL := true
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-TARGET_RECOVERY_FSTAB := device/asus/Z00D/rootdir/etc/fstab.redhookbay
+TARGET_RECOVERY_FSTAB := device/asus/T00F/rootdir/etc/fstab.redhookbay
 TARGET_RECOVERY_DEVICE_MODULES := libinit_ctp librecovery_updater_ctp thermald upi_ug31xx
 
 # Security
@@ -174,7 +174,7 @@ BUILD_WITH_SECURITY_FRAMEWORK := chaabi_token
 BUILD_WITH_CHAABI_SUPPORT := true
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/asus/Z00D/sepolicy
+BOARD_SEPOLICY_DIRS += device/asus/T00F/sepolicy
 
 # DT2W
 TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-0/0-0038/dclick_mode"
@@ -191,5 +191,5 @@ WIFI_DRIVER_FW_PATH_AP      := "/asusfw/wifi/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/asusfw/wifi/fw_bcmdhd.bin"
 
 # Use the non-open-source parts, if they're present
--include vendor/asus/Z00D/BoardConfigVendor.mk
+-include vendor/asus/T00F/BoardConfigVendor.mk
 

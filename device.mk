@@ -21,7 +21,7 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvi
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/asus/Z00D/overlay
+    device/asus/T00F/overlay
 
 # Art
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -41,13 +41,13 @@ PRODUCT_PACKAGES += \
     audio.usb.default
 
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/audio/asound.conf:system/etc/asound.conf \
-    device/asus/Z00D/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    device/asus/Z00D/audio/route_criteria.conf:system/etc/route_criteria.conf
+    device/asus/T00F/audio/asound.conf:system/etc/asound.conf \
+    device/asus/T00F/audio/audio_policy.conf:system/etc/audio_policy.conf \
+    device/asus/T00F/audio/route_criteria.conf:system/etc/route_criteria.conf
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+    device/asus/T00F/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.hfp.WideBandSpeechEnabled=true
@@ -79,13 +79,13 @@ PRODUCT_PACKAGES += \
     libshim_gps
 
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/configs/gps.conf:system/etc/gps.conf \
-    device/asus/Z00D/configs/gps.xml:system/etc/gps.xml \
-    device/asus/Z00D/configs/gps_logcat.xml:system/etc/gps_logcat.xml \
-    device/asus/Z00D/configs/gps_rs.xml:system/etc/gps_rs.xml \
-    device/asus/Z00D/configs/gps_spirent.xml:system/etc/gps_spirent.xml \
-    device/asus/Z00D/configs/gps_spirent_areaid.xml:system/etc/gps_spirent_areaid.xml \
-    device/asus/Z00D/configs/gps_spirent_hslp.xml:system/etc/gps_spirent_hslp.xml
+    device/asus/T00F/configs/gps.conf:system/etc/gps.conf \
+    device/asus/T00F/configs/gps.xml:system/etc/gps.xml \
+    device/asus/T00F/configs/gps_logcat.xml:system/etc/gps_logcat.xml \
+    device/asus/T00F/configs/gps_rs.xml:system/etc/gps_rs.xml \
+    device/asus/T00F/configs/gps_spirent.xml:system/etc/gps_spirent.xml \
+    device/asus/T00F/configs/gps_spirent_areaid.xml:system/etc/gps_spirent_areaid.xml \
+    device/asus/T00F/configs/gps_spirent_hslp.xml:system/etc/gps_spirent_hslp.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.spid.gps.pmm=disabled \
@@ -106,10 +106,14 @@ PRODUCT_PACKAGES += \
 
 # Key layout files
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/keylayout/cloverview_audio_Intel_MID_Audio_Jack.kl:system/usr/keylayout/cloverview_audio_Intel_MID_Audio_Jack.kl \
-    device/asus/Z00D/keylayout/ASUS_TransKeyboard.kl:system/usr/keylayout/ASUS_TransKeyboard.kl \
-    device/asus/Z00D/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/asus/Z00D/keylayout/focal-touchscreen.kl:system/usr/keylayout/focal-touchscreen.kl 
+    device/asus/T00F/keylayout/synaptics_dsx.idc:system/usr/idc/$(BOARD_TOUCHSCREEN_DRIVER).idc \
+    device/asus/T00F/keylayout/synaptics_dsx.kcm:system/usr/keychars/$(BOARD_TOUCHSCREEN_DRIVER).kcm \
+    device/asus/T00F/keylayout/synaptics_dsx.kl:system/usr/keylayout/$(BOARD_TOUCHSCREEN_DRIVER).kl \
+    device/asus/T00F/keylayout/cloverview_audio_Intel_MID_Audio_Jack.kl:system/usr/keylayout/cloverview_audio_Intel_MID_Audio_Jack.kl \
+    device/asus/T00F/keylayout/ASUS_TransKeyboard.kl:system/usr/keylayout/ASUS_TransKeyboard.kl \
+    device/asus/T00F/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/asus/T00F/keylayout/Vendor_0b05_Product_17fc.kl:system/usr/keylayout/Vendor_0b05_Product_17fc.kl \
+    device/asus/T00F/keylayout/Vendor_0b05_Product_1803.kl:system/usr/keylayout/Vendor_0b05_Product_1803.kl
 
 # Keystore
 PRODUCT_PACKAGES += \
@@ -125,9 +129,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.widevine.cachesize=16777216
 
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/media/media_codecs.xml:system/etc/media_codecs.xml \
-    device/asus/Z00D/media/media_profiles.xml:system/etc/media_profiles.xml \
-    device/asus/Z00D/media/wrs_omxil_components.list:system/etc/wrs_omxil_components.list \
+    device/asus/T00F/media/media_codecs.xml:system/etc/media_codecs.xml \
+    device/asus/T00F/media/media_profiles.xml:system/etc/media_profiles.xml \
+    device/asus/T00F/media/wrs_omxil_components.list:system/etc/wrs_omxil_components.list \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
@@ -214,10 +218,10 @@ PRODUCT_PACKAGES += \
     libshim_sensors
 
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/configs/sensor_hal_config_default.xml:system/etc/sensor_hal_config_default.xml \
-    device/asus/Z00D/configs/sensor_hal_config_general_default.xml:system/etc/sensor_hal_config_general_default.xml \
-    device/asus/Z00D/configs/sensor_hal_config_general_scale-pr1.xml:system/etc/sensor_hal_config_general_scale-pr1.xml \
-    device/asus/Z00D/configs/sensor_hal_config_scale-pr1.xml:system/etc/sensor_hal_config_scale-pr1.xml 
+    device/asus/T00F/configs/sensor_hal_config_default.xml:system/etc/sensor_hal_config_default.xml \
+    device/asus/T00F/configs/sensor_hal_config_general_default.xml:system/etc/sensor_hal_config_general_default.xml \
+    device/asus/T00F/configs/sensor_hal_config_general_scale-pr1.xml:system/etc/sensor_hal_config_general_scale-pr1.xml \
+    device/asus/T00F/configs/sensor_hal_config_scale-pr1.xml:system/etc/sensor_hal_config_scale-pr1.xml 
 
 # pvr
 PRODUCT_PACKAGES += \
@@ -262,9 +266,9 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    device/asus/T00F/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
-$(call inherit-product-if-exists, vendor/asus/Z00D/Z00D-vendor.mk)
+$(call inherit-product-if-exists, vendor/asus/T00F/T00F-vendor.mk)
 
 # Intel_updater
 PRODUCT_PACKAGES += \
@@ -291,7 +295,7 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    device/asus/Z00D/audio/silence.wav:system/etc/silence.wav
+    device/asus/T00F/audio/silence.wav:system/etc/silence.wav
 
 # Add WiFi Firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
