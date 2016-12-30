@@ -284,6 +284,15 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.sys.perf.device.full=1600000 \
     ro.sys.perf.device.touchboost=1333000
 
+# Alsa
+PRODUCT_PACKAGES += \
+    tinyplay \
+    tinycap \
+    tinymix
+
+PRODUCT_COPY_FILES += \
+    device/asus/Z00D/audio/silence.wav:system/etc/silence.wav
+
 # Add WiFi Firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
 
