@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+BOARD_TOUCHSCREEN_DRIVER := synaptics_dsx
+
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
