@@ -124,6 +124,7 @@
 /dev/psensor                            u:object_r:sensors_device:s0
 /dev/lsensor                            u:object_r:sensors_device:s0
 /system/bin/akmd09911                   u:object_r:akmd_exec:s0
+/system/bin/a600cg_akmd09911            u:object_r:akmd_exec:s0
 /dev/akm09911                           u:object_r:sensors_device:s0
 /dev/akm09911_dev                       u:object_r:sensors_device:s0
 /dev/cm3602                             u:object_r:sensors_device:s0

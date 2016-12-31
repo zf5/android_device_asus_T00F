@@ -187,22 +187,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    config_init.sh \
     fstab.redhookbay \
     init.avc.rc \
-    init.asus.rc \
     init.bt.rc \
     init.bt.vendor.rc \
     init.class_main.sh \
     init.common.rc \
+    init.config_init.rc \
     init.debug.rc \
     init.diag.rc \
+    init.firmware.rc \
     init.gps.rc \
     init.logtool.rc \
     init.modem.rc \
     init.redhookbay.rc \
     init.platform.usb.rc \
     init.power.redhookbay.rc \
-    init.product.rc \
     init.recovery.redhookbay.rc \
     init.watchdog.rc \
     init.wifi.rc \
@@ -210,6 +211,8 @@ PRODUCT_PACKAGES += \
     init.zram.rc \
     thermald \
     ueventd.redhookbay.rc \
+    gps_daemon.sh \
+    gps_lto.sh \
     init.compass.rc \
     init.wireless.rc
 

@@ -60,7 +60,6 @@ on boot
 
 on fs
     mkdir /factory 0775 system system
-    mkdir /asusfw 0660 root shell
     mkdir /config 0775 system system
     mkdir /media 0775 media media
     mount_all /fstab.redhookbay

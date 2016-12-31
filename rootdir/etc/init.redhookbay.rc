@@ -9,9 +9,8 @@ import init.gps.rc
 import init.compass.rc
 import init.bt.rc
 import init.modem.rc
+import init.config_init.rc
 import init.logtool.rc
-import init.product.rc
-import init.asus.rc
 
 on early-init
 # Set boot_min_cap for boot to Android.
@@ -24,7 +23,7 @@ on init
     chmod 0770 /dev/ug31xx
     chown system system /dev/ug31xx
 
-    export LD_SHIM_LIBS "/system/bin/mmgr|libshim_mmgr.so:/system/bin/gpsd|libshim_gps.so:/system/lib/hw/gps.redhookbay.so|libshim_gps.so:/system/lib/hw/sensors.redhookbay.so|libshim_sensors.so:/system/lib/libtcs.so|libshim_tcs.so:/system/lib/libparameter.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsa_custom-subsystem.so|libshim_audio.so:/system/lib/hw/camera.vendor.redhookbay.so|libshim_camera.so:/system/lib/hw/hwcomposer.clovertrail.so|libshim_hwc.so:/system/bin/bd_prov|libstock_crypto.so"
+    export LD_SHIM_LIBS "/system/bin/mmgr|libshim_mmgr.so:/system/bin/gpsd|libshim_gps.so:/system/lib/hw/gps.redhookbay.so|libshim_gps.so:/system/lib/hw/sensors.redhookbay.so|libshim_sensors.so:/system/lib/libtcs.so|libshim_tcs.so:/system/lib/libparameter.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libroute-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsa-subsystem.so|libshim_audio.so:/system/lib/libaudience-manager.so|libshim_audio.so:/system/lib/hw/camera.vendor.redhookbay.so|libshim_camera.so:/system/lib/hw/hwcomposer.clovertrail.so|libshim_hwc.so:/system/bin/bd_prov|libstock_crypto.so"
 
     write /sys/class/graphics/fbcon/cursor_blink 0
     mkdir /data/system/ 0770 system system
@@ -90,6 +89,9 @@ on boot
 
 # Disable LTE coexistence RT (Real Time). Should be set to 0 to enable.
     setprop persist.service.cwsmgr.nortcoex 0
+
+# Set this property so surfaceflinger is not started by system_init
+    setprop system_init.startsurfaceflinger 0
 
 # Reboot in COS on shutdown request when charger is plugged
     setprop ro.rebootchargermode true
@@ -164,13 +166,29 @@ on post-fs
     chown media system /sys/devices/platform/gpio-keys/disabled_wakeup
 
 #  Permissions for Sensors
-    #general sensor
-    chown system system /sys/devices/generalsensor/start
-    chown system system /sys/devices/generalsensor/dbglevel
-    chown system system /sys/devices/generalsensor/dbgsensors
 
-    #start general sensor driver
-    write /sys/devices/generalsensor/start 1
+    # accelerometer kxtj9
+    chown system system /sys/bus/i2c/devices/5-000f/enable
+    chown system system /sys/bus/i2c/devices/5-000f/delay
+    chown system system /sys/bus/i2c/devices/5-000f/rawdata
+
+    chown system system /dev/asus_gsensor
+    chmod 0660 /dev/asus_gsensor
+
+    # AKM E-compass added by cheng_kao
+    chown system system /sys/class/compass/akm09911/enable_acc
+    chown system system /sys/class/compass/akm09911/enable_mag
+    chown system system /sys/class/compass/akm09911/enable_fusion
+    chown system system /sys/class/compass/akm09911/delay_acc
+    chown system system /sys/class/compass/akm09911/delay_mag
+    chown system system /sys/class/compass/akm09911/delay_fusion
+    chown system system /sys/class/compass/akm09911/accel
+
+    chown system system /dev/akm09911_dev
+    chmod 0660 /dev/akm09911_dev
+
+# Permissions for proximity driver 
+    chown system system /sys/class/optical_sensors/proximity/ps_calling
 
     # accelerometer lsm303dlhc
     chown system system /sys/bus/i2c/devices/5-0019/enable
@@ -189,8 +207,8 @@ on post-fs
     chown system system /sys/bus/i2c/devices/5-001e/poll
 
     #als/ps apds990x
-    chown system system /dev/apds990x_lsensor
-    chown system system /dev/apds990x_psensor
+    chmod 0755 /dev/apds990x_lsensor
+    chmod 0755 /dev/apds990x_psensor
     chown system system /sys/bus/i2c/devices/5-0039/prox0_raw
     chown system system /sys/bus/i2c/devices/5-0039/prox0_thresh_above_value
 
@@ -201,14 +219,6 @@ on post-fs
     chown system system /sys/bus/i2c/devices/5-0039/apds990x_ps/rawdata
     chown system system /sys/bus/i2c/devices/5-0039/apds990x_ps/thresh
 
-    chown system system /dev/sep_sec_driver
-    chmod 0660 /dev/sep_sec_driver
-
-    #Gyroscope l3g4200d
-    chown system system /sys/bus/i2c/devices/5-0068/poll
-    chown system system /sys/bus/i2c/devices/5-0068/enable
-    chown system system /sys/bus/i2c/devices/5-006a/poll
-    chown system system /sys/bus/i2c/devices/5-006a/enable
 
     # SEP (Chaabi)
     copy /system/etc/security/sep_policy.conf /sys/fs/sepfs/load
@@ -220,6 +230,11 @@ on post-fs
     chown system system /dev/sep_sec_driver
     chmod 0666 /dev/sep_sec_driver
 
+    #Gyroscope l3g4200d
+    chown system system /sys/bus/i2c/devices/5-0068/poll
+    chown system system /sys/bus/i2c/devices/5-0068/enable
+    chown system system /sys/bus/i2c/devices/5-006a/poll
+    chown system system /sys/bus/i2c/devices/5-006a/enable
 
 # Permissions for monzax
     chown system system /dev/monzax
@@ -227,6 +242,16 @@ on post-fs
 
 # Permissions for LED
     chown system system /sys/class/leds/intel_keypad_led/brightness
+
+# For Indicator LED
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+    chmod 0644 /sys/class/leds/red/brightness
+    chmod 0644 /sys/class/leds/green/brightness
+    chmod 0644 /sys/class/leds/red/blink
+    chmod 0644 /sys/class/leds/green/blink
 
 #For Quick Charge control
 #    chown system system /proc/smb1357_qc_disable
@@ -249,12 +274,18 @@ on post-fs
 # Permissions for Touch Proximity node
     chown system system /proc/asus_touch_proximity_status
 
+# Permissions for Touch Glove Mode
+    chown system system /sys/bus/i2c/devices/i2c-0/0-0020/input/input1/glove_mode
 
 # Permissions for Touch dclick Mode
-    chown system radio /sys/bus/i2c/devices/i2c-0/0-0038/dclick_mode
-    chmod 0664 /sys/bus/i2c/devices/i2c-0/0-0038/dclick_mode
+    chown system radio /sys/bus/i2c/devices/i2c-0/0-0020/input/input1/dclick_mode
+    chmod 0664 /sys/bus/i2c/devices/i2c-0/0-0020/input/input1/dclick_mode
 # Permissions for Touch Gesture Mode
     chown system system /sys/bus/i2c/devices/i2c-0/0-0020/input/input1/glove_mode
+
+     # Key disabler
+    chown root system /proc/synaptics_dsx/0dbutton
+    chmod 0660 /proc/synaptics_dsx/0dbutton
 
 # Permissions for Sdcard Power Node
 	chown system system /proc/asus_sd_power
@@ -322,7 +353,7 @@ service audioserver /system/bin/audioserver
 service drm /system/bin/drmserver
     class main
     user drm
-    group drm system inet drmrpc readproc sdcard_r
+    group drm system inet drmrpc sdcard_r readproc
     writepid /dev/cpuset/foreground/tasks
 
 service sensorhubd /system/bin/sensorhubd
@@ -389,6 +420,8 @@ service surfaceflinger /system/bin/surfaceflinger
     group system graphics drmrpc readproc
     onrestart restart zygote
     writepid /dev/stune/foreground/tasks
+
+# From init.rc in stock, these redefine service definitions
 
 service media /system/bin/mediaserver
     class main
