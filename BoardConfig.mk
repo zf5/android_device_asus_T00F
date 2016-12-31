@@ -177,7 +177,7 @@ BUILD_WITH_CHAABI_SUPPORT := true
 BOARD_SEPOLICY_DIRS += device/asus/T00F/sepolicy
 
 # DT2W
-TARGET_TAP_TO_WAKE_NODE := "/sys/bus/i2c/devices/i2c-0/0-0038/dclick_mode"
+TARGET_TAP_TO_WAKE_NODE := "/sys/devices/pci0000:00/0000:00:00.3/i2c-0/0-0020/input/input1/dclick_mode"
 
 # Wifi
 BOARD_WLAN_DEVICE           := bcmdhd
