@@ -1,35 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
     <item name="none">0</item>
-    <item name="screen.on">136</item>
-    <item name="bluetooth.active">41</item>
-    <item name="bluetooth.on">0.24</item>
-    <item name="screen.full">248</item>
-    <item name="wifi.on">1.25</item>
-    <item name="wifi.active">310</item>
-    <item name="wifi.scan">60</item>
-    <item name="dsp.audio">120</item>
-    <item name="dsp.video">995</item>
-    <item name="radio.active">663</item>
-    <item name="radio.scanning">400</item>
-    <item name="gps.on">1000</item>
+    <item name="screen.on">128</item>
+    <item name="bluetooth.active">7.36</item>
+    <item name="bluetooth.on">0.41</item>
+    <item name="screen.full">112</item>
+    <item name="wifi.on">6.45</item>
+    <item name="wifi.active">68.1</item>
+    <item name="wifi.scan">31</item>
+    <item name="dsp.audio">35</item>
+    <item name="dsp.video">73</item>
+    <item name="radio.active">155</item>
+    <item name="radio.scanning">7.6</item>
+    <item name="gps.on">65</item>
     <array name="radio.on">
-        <value>55</value>
-        <value>55</value>
+        <value>32</value>
+        <value>28</value>
+        <value>21</value>
+        <value>14</value>
+        <value>7</value>
     </array>
     <array name="cpu.speeds">
-        <value>800000</value>
-        <value>933000</value>
+        <value>500000</value>
+        <value>583000</value>
+        <value>666000</value>
+        <value>750000</value>
+        <value>833000</value>
+        <value>916000</value>
+        <value>1000000</value>
+        <value>1083000</value>
+        <value>1166000</value>
+        <value>1250000</value>
         <value>1333000</value>
-        <value>1600000</value>
+        <value>1416000</value>
+        <value>1500000</value>
+        <value>1583000</value>
+        <value>1666000</value>
     </array>
-    <item name="cpu.idle">4.8</item>
-    <item name="cpu.awake">15</item>
+    <item name="cpu.idle">7.6</item>
+    <item name="cpu.awake">25</item>
     <array name="cpu.active">
-        <value>520</value>
-        <value>575</value>
-        <value>838</value>
-        <value>1024</value>
+        <value>9</value>    <!--  500 -->
+        <value>10</value>
+        <value>12</value>   <!--  666 -->
+        <value>13</value>
+        <value>14</value>   <!--  833 -->
+        <value>17</value>
+        <value>18</value>   <!-- 1000 -->
+        <value>19</value>
+        <value>21</value>   <!-- 1166 -->
+        <value>27</value>
+        <value>31</value>   <!-- 1333 -->
+        <value>35</value>
+        <value>39</value>   <!-- 1500 -->
+        <value>42</value>
+        <value>45</value>   <!-- 1666 -->
     </array>
-    <item name="battery.capacity">2500</item>
+    <item name="battery.capacity">3300</item>
+    <array name="camera.mode">
+        <value>60</value>
+        <value>60</value>
+        <value>310</value>
+        <value>190</value>
+    </array>
 </device>

@@ -288,9 +288,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ramdisk config of governors
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.sys.perf.device.powersave=933000 \
-    ro.sys.perf.device.full=1600000 \
-    ro.sys.perf.device.touchboost=1333000
+    ro.sys.perf.device.powersave=800000 \
+    ro.sys.perf.device.full=1633000 \
+    ro.sys.perf.device.touchboost=1330000
 
 # Alsa
 PRODUCT_PACKAGES += \
