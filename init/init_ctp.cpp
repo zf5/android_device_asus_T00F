@@ -54,6 +54,7 @@
 #define PMIC_NVM_PATH   "/sys/kernel/fw_update/fw_info/pmic_nvm_version"
 #define WATCHDOG_PATH   "/sys/devices/virtual/misc/watchdog/counter"
 #define OSRELEASE_PATH  "/proc/sys/kernel/osrelease"
+#define PROJID_PATH     "/sys/module/intel_mid_sfi/parameters/project_id"
 
 static int read_file2(const char *fname, char *data, int max_size)
 {
@@ -176,10 +177,35 @@ static void intel_props() {
 
 }
 
+static int setup_projid() {
+    char buf[BUF_SIZE];
+
+    if(read_file2(PROJID_PATH, buf, sizeof(buf))) {
+      int projid = atoi(buf);
+      if(projid == 5 || projid == 7) { // if T00G (Zenfone 6) is detected
+        property_set("ro.product.model", "ASUS_T00G");
+        property_set("ro.build.fingerprint", "asus/WW_a600cg/ASUS_T00G:5.0/LRX21V/WW_user_3.24.40.87_20151222_34:user/release-keys");
+        property_set("ro.build.description", "a600cg-user 5.0 LRX21V WW_user_3.24.40.87_20151222_34 release-keys");
+        property_set("ro.product.device", "T00G");
+        property_set("ro.product.name", "WW_a600cg");
+        system("mount -o remount,rw /system");
+        unlink("/system/lib/hw/sensors.redhookbay.so");
+        rename("/system/lib/hw/a600cg.sensors.redhookbay.so", "/system/lib/hw/sensors.redhookbay.so");
+        unlink("/system/lib/libxditk_DIT_Manager.so");
+        rename("/system/lib/ditlib_a600cg/libxditk_DIT_Manager.so", "/system/lib/libxditk_DIT_Manager.so");
+        unlink("/system/lib/libxditk_DIT_CloverTrailPlus.so");
+        rename("/system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so", "/system/lib/libxditk_DIT_CloverTrailPlus.so");
+        system("mount -o remount,ro /system");
+      }
+    }
+   return 0;
+}
+
+
 void vendor_load_properties()
 {
-//    get_serial();
+    get_serial();
+    setup_projid();
     configure_zram();
     intel_props();
-
 }
