@@ -190,11 +190,11 @@ static int setup_projid() {
         property_set("ro.product.name", "WW_a600cg");
         system("mount -o remount,rw /system");
         unlink("/system/lib/hw/sensors.redhookbay.so");
-        rename("/system/lib/hw/a600cg.sensors.redhookbay.so", "/system/lib/hw/sensors.redhookbay.so");
+        symlink("/system/lib/hw/a600cg.sensors.redhookbay.so", "/system/lib/hw/sensors.redhookbay.so");
         unlink("/system/lib/libxditk_DIT_Manager.so");
-        rename("/system/lib/ditlib_a600cg/libxditk_DIT_Manager.so", "/system/lib/libxditk_DIT_Manager.so");
+        symlink("/system/lib/ditlib_a600cg/libxditk_DIT_Manager.so", "/system/lib/libxditk_DIT_Manager.so");
         unlink("/system/lib/libxditk_DIT_CloverTrailPlus.so");
-        rename("/system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so", "/system/lib/libxditk_DIT_CloverTrailPlus.so");
+        symlink("/system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so", "/system/lib/libxditk_DIT_CloverTrailPlus.so");
         system("mount -o remount,ro /system");
       }
     }
