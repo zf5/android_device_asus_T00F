@@ -207,13 +207,18 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
     struct local_power_module *pm = (struct local_power_module *) module;
     int duration;
 
-    switch (hint) {
-    case POWER_HINT_SET_PROFILE:
+    if (hint == POWER_HINT_SET_PROFILE) {
         pthread_mutex_lock(&profile_lock);
         set_power_profile(*(int32_t *)data);
-	pthread_mutex_unlock(&profile_lock);
-        break;
+        pthread_mutex_unlock(&profile_lock);
+        return;
+    }
 
+    // Skip other hints in powersave mode
+    if (current_power_profile == PROFILE_POWER_SAVE)
+        return;
+
+    switch (hint) {
     case POWER_HINT_INTERACTION:
         touchboost();
         break;
