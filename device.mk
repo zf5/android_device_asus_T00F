@@ -221,6 +221,10 @@ PRODUCT_PACKAGES += \
     init.compass.rc \
     init.wireless.rc
 
+# Stlport
+PRODUCT_PACKAGES += \
+    libstlport
+
 # Sensors
 PRODUCT_PACKAGES += \
     libshim_sensors
