@@ -1,6 +1,8 @@
 on boot
     setprop wifi.interface wlan0
     setprop ap.interface wlan0
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
 service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf -I/system/etc/wifi/wpa_supplicant_overlay.conf -d -g@android:wpa_wlan0
     class main
