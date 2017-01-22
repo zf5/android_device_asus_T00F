@@ -59,7 +59,7 @@ PRODUCT_PACKAGES += \
     bspcapability \
     camera.redhookbay \
     libshim_camera \
-    Snap
+    Camera2
 
 # Charger
 PRODUCT_PACKAGES += \
