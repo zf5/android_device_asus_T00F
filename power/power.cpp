@@ -66,6 +66,14 @@ struct local_power_module {
 
 #define BUF_SIZE 80
 
+#define HISPEED_FREQ_PATH "/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq"
+#define HISPEED_FREQ_OFF  "500000"
+#define TOUCHBOOST_PATH   "/sys/devices/system/cpu/cpufreq/interactive/touchboostpulse"
+#define TOUCHBOOST_MIN_INTERVAL_MS 200
+
+static int64_t last_touchboost;
+static char hispeed_freq[BUF_SIZE];
+
 static int sysfs_read(const char *path, char buf[BUF_SIZE]) {
     int len;
     int fd = open(path, O_RDONLY);
@@ -88,6 +96,12 @@ static int sysfs_read(const char *path, char buf[BUF_SIZE]) {
     return len;
 }
 
+static void sysfs_read_or_empty(const char *path, char buf[BUF_SIZE]) {
+    if (sysfs_read(path, buf) < 0) {
+         buf[0] = '\0';
+    }
+}
+
 static void sysfs_write(const char *path, const char *const s) {
     char buf[BUF_SIZE];
     int len;
@@ -108,7 +122,27 @@ static void sysfs_write(const char *path, const char *const s) {
     close(fd);
 }
 
-static void power_set_interactive(struct power_module *, int on __unused) {
+static void sysfs_write_unless_empty(const char *path, const char *const s) {
+    if (*s) {
+        sysfs_write(path, s);
+    }
+}
+
+void power_set_interactive(struct power_module *, int on) {
+    if (on) {
+        sysfs_write_unless_empty(HISPEED_FREQ_PATH, hispeed_freq);
+    } else {
+        sysfs_read_or_empty(HISPEED_FREQ_PATH, hispeed_freq);
+        sysfs_write(HISPEED_FREQ_PATH, HISPEED_FREQ_OFF);
+    }
+}
+
+static void touchboost() {
+    int64_t now = android::uptimeMillis();
+    if (now - last_touchboost > TOUCHBOOST_MIN_INTERVAL_MS) {
+        sysfs_write(TOUCHBOOST_PATH, "1");
+        last_touchboost = now;
+    }
 }
 
 static void sysfs_write_int(char *path, int value)
@@ -170,6 +204,9 @@ static void set_power_profile(int profile) {
 static void power_hint( __attribute__((unused)) struct power_module *module,
                       power_hint_t hint, void *data)
 {
+    struct local_power_module *pm = (struct local_power_module *) module;
+    int duration;
+
     if (hint == POWER_HINT_SET_PROFILE) {
         pthread_mutex_lock(&profile_lock);
         set_power_profile(*(int32_t *)data);
@@ -180,6 +217,23 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
     // Skip other hints in powersave mode
     if (current_power_profile == PROFILE_POWER_SAVE)
         return;
+
+    switch (hint) {
+    case POWER_HINT_INTERACTION:
+        touchboost();
+        break;
+
+    case POWER_HINT_CPU_BOOST:
+        duration = data != NULL ? (int) data : 1;
+        touchboost();
+
+    case POWER_HINT_VSYNC:
+        break;
+
+    default:
+        break;
+    }
+
 }
 
 static struct hw_module_methods_t power_module_methods = {
