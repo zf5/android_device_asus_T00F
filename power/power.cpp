@@ -66,8 +66,6 @@ struct local_power_module {
 
 #define BUF_SIZE 80
 
-#define HISPEED_FREQ_PATH "/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq"
-#define HISPEED_FREQ_OFF  "500000"
 #define TOUCHBOOST_PATH   "/sys/devices/system/cpu/cpufreq/interactive/touchboostpulse"
 #define TOUCHBOOST_MIN_INTERVAL_MS 200
 
@@ -128,13 +126,7 @@ static void sysfs_write_unless_empty(const char *path, const char *const s) {
     }
 }
 
-void power_set_interactive(struct power_module *, int on) {
-    if (on) {
-        sysfs_write_unless_empty(HISPEED_FREQ_PATH, hispeed_freq);
-    } else {
-        sysfs_read_or_empty(HISPEED_FREQ_PATH, hispeed_freq);
-        sysfs_write(HISPEED_FREQ_PATH, HISPEED_FREQ_OFF);
-    }
+static void power_set_interactive(struct power_module *, int on __unused) {
 }
 
 static void touchboost() {
