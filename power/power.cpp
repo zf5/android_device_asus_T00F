@@ -180,6 +180,18 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
     // Skip other hints in powersave mode
     if (current_power_profile == PROFILE_POWER_SAVE)
         return;
+
+    // unimplemented for now
+    switch (hint) {
+    case POWER_HINT_INTERACTION:
+        break;
+
+    case POWER_HINT_VSYNC:
+        break;
+
+    default:
+        break;
+    }
 }
 
 static struct hw_module_methods_t power_module_methods = {
