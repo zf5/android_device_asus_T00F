@@ -1,66 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2016 The Android Open-Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
 <device name="Android">
-    <item name="none">0</item>
-    <item name="screen.on">128</item>
-    <item name="bluetooth.active">7.36</item>
-    <item name="bluetooth.on">0.41</item>
-    <item name="screen.full">112</item>
-    <item name="wifi.on">6.45</item>
-    <item name="wifi.active">68.1</item>
-    <item name="wifi.scan">31</item>
-    <item name="dsp.audio">35</item>
-    <item name="dsp.video">73</item>
-    <item name="radio.active">155</item>
-    <item name="radio.scanning">7.6</item>
-    <item name="gps.on">65</item>
-    <array name="radio.on">
-        <value>32</value>
-        <value>28</value>
-        <value>21</value>
-        <value>14</value>
-        <value>7</value>
-    </array>
-    <array name="cpu.speeds">
-        <value>500000</value>
-        <value>583000</value>
-        <value>666000</value>
-        <value>750000</value>
-        <value>833000</value>
-        <value>916000</value>
-        <value>1000000</value>
-        <value>1083000</value>
-        <value>1166000</value>
-        <value>1250000</value>
-        <value>1333000</value>
-        <value>1416000</value>
-        <value>1500000</value>
-        <value>1583000</value>
-        <value>1666000</value>
-    </array>
-    <item name="cpu.idle">7.6</item>
-    <item name="cpu.awake">25</item>
-    <array name="cpu.active">
-        <value>9</value>    <!--  500 -->
-        <value>10</value>
-        <value>12</value>   <!--  666 -->
-        <value>13</value>
-        <value>14</value>   <!--  833 -->
-        <value>17</value>
-        <value>18</value>   <!-- 1000 -->
-        <value>19</value>
-        <value>21</value>   <!-- 1166 -->
-        <value>27</value>
-        <value>31</value>   <!-- 1333 -->
-        <value>35</value>
-        <value>39</value>   <!-- 1500 -->
-        <value>42</value>
-        <value>45</value>   <!-- 1666 -->
-    </array>
-    <item name="battery.capacity">3300</item>
-    <array name="camera.mode">
-        <value>60</value>
-        <value>60</value>
-        <value>310</value>
-        <value>190</value>
-    </array>
+  <!-- Most values are the incremental current used by a feature,
+	   in mA (measured at nominal voltage).
+	   The default values are deliberately incorrect dummy values.
+	   OEM's must measure and provide actual values before
+	   shipping a device.
+	   Example real-world values are given in comments, but they
+	   are totally dependent on the platform and can vary
+	   significantly, so should be measured on the shipping platform
+	   with a power meter. -->
+	<item name="none">0</item>
+	<item name="screen.on">158</item>
+	<item name="bluetooth.active">15</item>
+	<item name="bluetooth.on">6</item>
+	<item name="screen.full">295</item>
+	<item name="wifi.on">9</item>
+	<item name="wifi.active">25</item>
+	<item name="wifi.scan">12</item>
+	<item name="dsp.audio">90</item>
+	<item name="dsp.video">96</item>
+	<item name="radio.active">34</item>
+	<item name="radio.scanning">34</item>
+	<item name="gps.on">177</item>
+	<array name="radio.on">
+		<value>34</value>
+		<value>34</value>
+	</array>
+	<array name="cpu.speeds">
+		<value>800000</value>
+		<value>933000</value>
+		<value>1333000</value>
+		<value>1600000</value>
+		<value>1866000</value>
+		<value>2000000</value>
+	</array>
+	<item name="cpu.idle">13.5</item>
+	<item name="cpu.awake">29</item>
+	<array name="cpu.active">
+		<value>484</value>
+		<value>567</value>
+		<value>692</value>
+		<value>1021</value>
+		<value>1021</value>
+		<value>1021</value>
+	</array>
+	<item name="battery.capacity">2110</item>
 </device>
