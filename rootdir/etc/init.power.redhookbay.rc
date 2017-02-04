@@ -13,8 +13,5 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq ${ro.sys.perf.device.full}
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq ${ro.sys.perf.device.full}
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq ${ro.sys.perf.device.full}
-    write /sys/devices/system/cpu/cpufreq/interactive/touchboostpulse_duration 40000
-    write /sys/devices/system/cpu/cpufreq/interactive/touchboost_freq ${ro.sys.perf.device.touchboost}
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq ${ro.sys.perf.device.touchboost}
     setprop sys.perf.profile.governor interactive
     write /sys/devices/platform/dfrgx/devfreq/dfrgx/governor simple_ondemand
