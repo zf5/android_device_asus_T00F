@@ -84,7 +84,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Charger
 WITH_CM_CHARGER := false
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/asus/Z00D/charger/images
+BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/asus/T00F/charger/images
 
 # Dex-preoptimization: Speeds up initial boot (if we ever o a user build, which we don't)
 ifeq ($(HOST_OS),linux)
