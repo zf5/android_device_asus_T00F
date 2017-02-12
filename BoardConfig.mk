@@ -34,8 +34,6 @@ TARGET_SPECIFIC_HEADER_PATH := device/asus/T00F/include
 
 TARGET_DROIDBOOT_LIBS := libintel_droidboot
 
-TARGET_RELEASETOOL_MAKE_RECOVERY_PATCH_SCRIPT := ./device/asus/T00F/make_recovery_patch
-
 # OTA Packaging / Bootimg creation
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 BOARD_CUSTOM_MKBOOTIMG := pack_intel
