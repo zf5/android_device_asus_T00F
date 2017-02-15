@@ -71,7 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PACKAGES += \
     pvr_drv_video \
-    libshim_hwc
+    libgbf
 
 # Flip Cover App
 PRODUCT_PACKAGES += \
