@@ -207,6 +207,8 @@ PRODUCT_PACKAGES += \
     init.wifi.rc \
     init.wifi.vendor.rc \
     init.zram.rc \
+    intel_prop \
+    intel_prop.cfg \
     thermald \
     ueventd.redhookbay.rc \
     gps_daemon.sh \

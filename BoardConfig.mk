@@ -166,9 +166,9 @@ BOARD_PROVIDES_LIBRIL := true
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-TARGET_RECOVERY_FSTAB := device/asus/T00F/rootdir/etc/fstab.redhookbay
-TARGET_RECOVERY_DEVICE_MODULES := libinit_ctp librecovery_updater_ctp thermald upi_ug31xx
 
+TARGET_RECOVERY_FSTAB := device/asus/T00F/rootdir/etc/fstab.redhookbay
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ctp librecovery_updater_ctp intel_prop thermald upi_ug31xx
 # Security
 BUILD_WITH_SECURITY_FRAMEWORK := chaabi_token
 BUILD_WITH_CHAABI_SUPPORT := true
