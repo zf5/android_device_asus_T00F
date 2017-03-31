@@ -51,6 +51,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/asus/T00F/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
+# Bluetooth HAL
+PRODUCT_PACKAGES += \
+    libbt-vendor \
+    android.hardware.bluetooth@1.0-impl
+
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.hfp.WideBandSpeechEnabled=true
 
