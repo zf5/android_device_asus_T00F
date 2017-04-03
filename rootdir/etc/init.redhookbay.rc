@@ -23,7 +23,7 @@ on init
     chmod 0770 /dev/ug31xx
     chown system system /dev/ug31xx
 
-    export LD_SHIM_LIBS "/system/bin/mmgr|libshim_mmgr.so:/system/bin/gpsd|libshim_gps.so:/system/lib/hw/gps.redhookbay.so|libshim_gps.so:/system/lib/hw/sensors.redhookbay.so|libshim_sensors.so:/system/lib/libtcs.so|libshim_tcs.so:/system/lib/libparameter.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libroute-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsa-subsystem.so|libshim_audio.so:/system/lib/libaudience-manager.so|libshim_audio.so:/system/lib/hw/camera.vendor.redhookbay.so|libshim_camera.so:/system/lib/hw/hwcomposer.clovertrail.so|libshim_hwc.so:/system/bin/bd_prov|libstock_crypto.so:/system/bin/customize_service|libstock_crypto.so"
+    export LD_SHIM_LIBS "/system/bin/mmgr|libshim_mmgr.so:/system/bin/gpsd|libshim_gps.so:/system/lib/hw/gps.redhookbay.so|libshim_gps.so:/system/lib/hw/sensors.redhookbay.so|libshim_sensors.so:/system/lib/libtcs.so|libshim_tcs.so:/system/lib/libparameter.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libroute-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsa-subsystem.so|libshim_audio.so:/system/lib/libaudience-manager.so|libshim_audio.so:/system/lib/hw/camera.vendor.redhookbay.so|libshim_camera.so:/system/bin/bd_prov|libstock_crypto.so:/system/bin/customize_service|libstock_crypto.so"
 
     write /sys/class/graphics/fbcon/cursor_blink 0
     mkdir /data/system/ 0770 system system
@@ -414,15 +414,7 @@ service iprenew_eth0 /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service surfaceflinger /system/bin/surfaceflinger
-    class core
-    user root
-    group system graphics drmrpc readproc
-    onrestart restart zygote
-    writepid /dev/stune/foreground/tasks
-
 # From init.rc in stock, these redefine service definitions
-
 service keystore /system/bin/keystore /data/misc/keystore
     class main
     user keystore

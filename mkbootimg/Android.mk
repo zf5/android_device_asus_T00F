@@ -1,5 +1,4 @@
 
-ifeq ($(BOARD_CUSTOM_BOOTIMG),true)
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -18,5 +17,3 @@ LOCAL_MODULE := unpack_intel
 
 include $(BUILD_HOST_EXECUTABLE)
 $(call dist-for-goals,dist_files,$(LOCAL_BUILT_MODULE))
-
-endif # BOARD_CUSTOM_BOOTIMG

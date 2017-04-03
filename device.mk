@@ -56,7 +56,7 @@ PRODUCT_PACKAGES += \
     bspcapability \
     camera.redhookbay \
     libshim_camera \
-    Camera2
+    Snap
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -71,7 +71,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PACKAGES += \
     pvr_drv_video \
-    libshim_hwc
+    libgbf
 
 # Flip Cover App
 PRODUCT_PACKAGES += \
@@ -101,10 +101,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.enable.native.bridge.exec=1
 
 ADDITIONAL_DEFAULT_PROPERTIES += ro.dalvik.vm.native.bridge=libhoudini.so
-
-# Keyhandler
-PRODUCT_PACKAGES += \
-    com.cyanogenmod.keyhandler
 
 # Key layout files
 PRODUCT_COPY_FILES += \
@@ -211,6 +207,8 @@ PRODUCT_PACKAGES += \
     init.wifi.rc \
     init.wifi.vendor.rc \
     init.zram.rc \
+    intel_prop \
+    intel_prop.cfg \
     thermald \
     ueventd.redhookbay.rc \
     gps_daemon.sh \
