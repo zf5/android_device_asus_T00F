@@ -60,15 +60,6 @@ if [ -n "$PROJECT_ID" ]; then
 			log -p i -t dnfix "Updating build.prop..."
 			printf "\ndgadelha.dnfix=20160626\n" >> /system/build.prop
 
-			log -p i -t dnfix "Updating Sensors Service..."
-			mv /system/bin/akmd09911 /system/bin/a500cg_akmd09911
-			ln -s /system/lib/a500cg_akmd09911 /system/bin/akmd09911
-
-			log -p i -t dnfix "Re-inforcing permissions of modified files..."
-			chmod 0755 /system/bin/akmd09911
-			chmod 0755 /system/bin/a500cg_akmd09911
-			chmod 0755 /system/bin/a600cg_akmd09911
-
 			log -p i -t dnfix "Re-mounting System as Read-Only..."
 			mount -o remount,ro /system
 
@@ -99,47 +90,16 @@ if [ -n "$PROJECT_ID" ]; then
 				# user flashed a kernel in a dirty install
 				log -p i -t dnfix "Updating build.prop..."
 				printf "\ndgadelha.dnfix=20160626\n" >> /system/build.prop
-
-				log -p i -t dnfix "Updating Sensors Service..."
-				mv /system/bin/akmd09911 /system/bin/a500cg_akmd09911
-				ln -s /system/lib/a600cg_akmd09911 /system/bin/akmd09911
-
-				log -p i -t dnfix "Re-inforcing permissions of modified files..."
-				chmod 0755 /system/bin/akmd09911
-				chmod 0755 /system/bin/a500cg_akmd09911
-				chmod 0755 /system/bin/a600cg_akmd09911
 			else
 				log -p i -t dnfix "Updating build.prop..."
 				sed -i 's/T00F/T00G/g' /system/build.prop
 				printf "\ndgadelha.dnfix=20160626\n" >> /system/build.prop
-
-				log -p i -t dnfix "Updating Sensors Library..."
-				rm /system/lib/hw/sensors.redhookbay.so
-				ln -s /system/lib/hw/a600cg.sensors.redhookbay.so /system/lib/hw/sensors.redhookbay.so
-
-				log -p i -t dnfix "Updating Sensors Service..."
-				mv /system/bin/akmd09911 /system/bin/a500cg_akmd09911
-				ln -s /system/lib/a600cg_akmd09911 /system/bin/akmd09911
 
 				log -p i -t dnfix "Updating Camera DIT Libraries..."
 				rm /system/lib/libxditk_DIT_Manager.so
 				ln -s /system/lib/ditlib_a600cg/libxditk_DIT_Manager.so /system/lib/libxditk_DIT_Manager.so
 				rm /system/lib/libxditk_DIT_CloverTrailPlus.so
 				ln -s /system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so /system/lib/libxditk_DIT_CloverTrailPlus.so
-
-				log -p i -t dnfix "Re-inforcing permissions of modified files..."
-				chmod 0755 /system/bin/akmd09911
-				chmod 0755 /system/bin/a500cg_akmd09911
-				chmod 0755 /system/bin/a600cg_akmd09911
-				chmod 0644 /system/lib/hw/a500cg.sensors.redhookbay.so
-				chmod 0644 /system/lib/hw/a600cg.sensors.redhookbay.so
-				chmod 0644 /system/lib/hw/sensors.redhookbay.so
-				chmod 0644 /system/lib/ditlib_a500cg/libxditk_DIT_Manager.so
-				chmod 0644 /system/lib/ditlib_a500cg/libxditk_DIT_CloverTrailPlus.so
-				chmod 0644 /system/lib/ditlib_a600cg/libxditk_DIT_Manager.so
-				chmod 0644 /system/lib/ditlib_a600cg/libxditk_DIT_CloverTrailPlus.so
-				chmod 0644 /system/lib/libxditk_DIT_Manager.so
-				chmod 0644 /system/lib/libxditk_DIT_CloverTrailPlus.so
 				chmod 0644 /system/build.prop
 			fi
 
