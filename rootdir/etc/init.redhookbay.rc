@@ -11,6 +11,7 @@ import init.bt.rc
 import init.modem.rc
 import init.config_init.rc
 import init.logtool.rc
+import init.dgadelha.rc
 
 on early-init
 # Set boot_min_cap for boot to Android.
