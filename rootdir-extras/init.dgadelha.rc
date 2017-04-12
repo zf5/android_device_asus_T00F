@@ -57,7 +57,7 @@ service slockfix /system/bin/sh /sbin/slockfix.sh
 on boot
     start dnfix
 
-on post-fs-data
+on early-init
     start dgadelha
 
 on property:sys.boot_completed=1
