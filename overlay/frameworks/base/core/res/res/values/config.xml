@@ -389,4 +389,7 @@
     <!-- Configuration to support SIM contact batch operation -->
     <bool name="config_sim_phonebook_batch_operation">false</bool>
 
+    <!-- If this is true, the screen will fade off. -->
+    <bool name="config_animateScreenLights">true</bool>
+
 </resources>
