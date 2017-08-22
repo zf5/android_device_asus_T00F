@@ -27,7 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
 
 # Asus properties
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.build.asus.sku=WW
 
 # Audio
@@ -100,7 +100,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.enable.native.bridge.exec=1
 
-ADDITIONAL_DEFAULT_PROPERTIES += ro.dalvik.vm.native.bridge=libhoudini.so
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.dalvik.vm.native.bridge=libhoudini.so
 
 # Key layout files
 PRODUCT_COPY_FILES += \
@@ -290,7 +290,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=320
 
 # Ramdisk config of governors
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.sys.perf.device.powersave=800000 \
     ro.sys.perf.device.full=1633000 \
     ro.sys.perf.device.touchboost=1330000
@@ -314,4 +314,13 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339
 #Root dir extras
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/asus/T00F/rootdir-extras,root)
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.opengles.version = 131072
+
+
 
