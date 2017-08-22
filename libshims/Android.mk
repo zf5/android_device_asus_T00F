@@ -22,7 +22,7 @@ LOCAL_SRC_FILES := \
     ui/GraphicBufferMapper.cpp \
     atomic.cpp
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libhardware libui libgui libbinder libutils libsync
+LOCAL_SHARED_LIBRARIES := liblog libcutils libhardware libui libgui libbinder libsensor libutils libsync
 LOCAL_MODULE := libshim_camera
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
@@ -51,7 +51,7 @@ LOCAL_SRC_FILES := \
     icu53.c \
     ssl_lib.c
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libutils libicuuc libicui18n libcrypto
+LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libsensor libutils libicuuc libicui18n libcrypto
 LOCAL_MODULE := libshim_gps
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 

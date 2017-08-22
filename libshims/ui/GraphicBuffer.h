@@ -28,7 +28,6 @@
 
 #include <hardware/gralloc.h>
 
-
 struct ANativeWindowBuffer;
 
 namespace android {
