@@ -171,10 +171,6 @@ PRODUCT_PACKAGES += \
     libOMXVideoEncoderH263 \
     libOMXVideoEncoderMPEG4
 
-# PowerHAL
-PRODUCT_PACKAGES += \
-    power.redhookbay
-
 # Radio
 PRODUCT_PACKAGES += \
     libshim_mmgr \
