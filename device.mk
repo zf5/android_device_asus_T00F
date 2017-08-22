@@ -57,7 +57,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     bspcapability \
-    camera.redhookbay \
     libshim_camera \
     Snap
 
