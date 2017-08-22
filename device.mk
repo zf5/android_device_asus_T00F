@@ -19,6 +19,9 @@ BOARD_TOUCHSCREEN_DRIVER := synaptics_dsx
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+#Prebuilt kernel
+TARGET_PREBUILT_KERNEL:= device/asus/T00F/kernel
+
 DEVICE_PACKAGE_OVERLAYS := \
     device/asus/T00F/overlay
 
@@ -311,7 +314,7 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    dalvik.vm.isa.x86.features=sse4_2,aes_in,popcnt,movbe
 
-#Root dir extras
+#Copy prebuilt modules to ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/asus/T00F/rootdir-extras,root)
 
