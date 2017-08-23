@@ -1,4 +1,3 @@
-allow kernel self:capability { sys_admin dac_override chown };
 allow kernel unlabeled:file { setattr read write open };
 allow kernel config_file:dir search;
 allow kernel factory_file:dir search;

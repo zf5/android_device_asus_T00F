@@ -16,13 +16,6 @@ allow init rootfs:dir relabelto;
 allow init radio_cache_file:file rw_file_perms;
 allow init radio_cache_file:dir { rw_dir_perms relabelto };
 
-# Allow shimlibs
-allow init { domain -lmkd }:process noatsecure;
-# accept shim libs
-allow init surfaceflinger:process noatsecure;
-allow init mediaserver:process noatsecure;
-allow init zygote:process noatsecure;
-
 allow init kernel:system module_request;
 allow init debugfs:file rw_file_perms;
 

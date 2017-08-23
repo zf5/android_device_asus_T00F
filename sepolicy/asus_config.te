@@ -58,5 +58,5 @@ allow asus_config toolbox_exec:file rx_file_perms;
 ## path="/system/bin/upi_ug31xx"
 allow asus_config system_file:file x_file_perms;
 allow asus_config asus_config_device:chr_file { rw_file_perms setattr };
-allow asus_config log_device:chr_file rw_file_perms;
+#allow asus_config log_device:chr_file rw_file_perms;
 allow asus_config unlabeled:file rw_file_perms;
