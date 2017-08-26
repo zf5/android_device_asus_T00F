@@ -20,7 +20,6 @@ LOCAL_SRC_FILES := \
     ui/GraphicBufferAllocator.cpp \
     ui/GraphicBuffer.cpp \
     ui/GraphicBufferMapper.cpp \
-    surface-control.cpp \
     atomic.cpp
 
 LOCAL_SHARED_LIBRARIES := liblog libcutils libhardware libui libgui libbinder libutils libsync
