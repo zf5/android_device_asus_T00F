@@ -19,6 +19,7 @@
 #include <ui/Rect.h>
 #include <gui/SurfaceControl.h>
 
+
 namespace android {
 
 // ---------------------------------------------------------------------------

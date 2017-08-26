@@ -15,6 +15,10 @@
  */
 
 #include <string>
+#define ANDROID_ATOMIC_INLINE
+extern "C" {
+#include <cutils/atomic.h>
+}
 
 extern "C" void _ZN7android13GraphicBufferC1EjjijNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(
     uint32_t inWidth, uint32_t inHeight, int inFormat, uint32_t inUsage,
