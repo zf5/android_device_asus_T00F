@@ -57,7 +57,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     bspcapability \
-    libshim_camera \
     Snap
 
 # Charger
@@ -85,7 +84,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl
 
 # GPS
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     libshim_gps
 
 PRODUCT_COPY_FILES += \
