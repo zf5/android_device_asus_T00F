@@ -150,7 +150,7 @@ PRODUCT_COPY_FILES += \
     device/asus/T00F/media/media_profiles.xml:system/etc/media_profiles.xml \
     device/asus/T00F/media/wrs_omxil_components.list:system/etc/wrs_omxil_components.list \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
 # Media: SDK and OMX IL components
 PRODUCT_PACKAGES += \
