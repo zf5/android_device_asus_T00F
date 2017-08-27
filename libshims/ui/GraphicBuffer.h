@@ -19,7 +19,6 @@
 
 #include <stdint.h>
 #include <sys/types.h>
-#include <hardware/gralloc.h>
 
 #include <ui/ANativeObjectBase.h>
 #include <ui/PixelFormat.h>

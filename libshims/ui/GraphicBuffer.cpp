@@ -22,7 +22,6 @@
 
 #include <utils/Errors.h>
 #include <utils/Log.h>
-#include <cutils/atomic.h>
 
 #include "ui/GraphicBuffer.h"
 #include "ui/GraphicBufferAllocator.h"
