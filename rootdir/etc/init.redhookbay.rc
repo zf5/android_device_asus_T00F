@@ -27,6 +27,7 @@ on init
     export LD_SHIM_LIBS "/system/bin/mmgr|libshim_mmgr.so:/system/lib/hw/sensors.redhookbay.so|libshim_sensors.so:/system/lib/libtcs.so|libshim_tcs.so:/system/lib/libparameter.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libroute-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsa-subsystem.so|libshim_audio.so:/system/lib/libaudience-manager.so|libshim_audio.so:/system/bin/bd_prov|libstock_crypto.so:/system/bin/customize_service|libstock_crypto.so"
     export LD_PRELOAD "/system/lib/libocompat.so"
 
+
     write /sys/class/graphics/fbcon/cursor_blink 0
     mkdir /data/system/ 0770 system system
     mkdir /data/misc 01771 system misc
@@ -355,6 +356,15 @@ service sensorhubd /system/bin/sensorhubd
     user system
     group system
     socket sensorhubd stream 660 system system
+
+service audioserver /system/bin/audioserver
+    class main
+    user audioserver
+    # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
+    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct system radio
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
+    onrestart restart audio-hal-2-0
 
 on charger
     start upi_ug31xx
