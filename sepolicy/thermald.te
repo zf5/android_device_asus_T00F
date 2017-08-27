@@ -1,0 +1,7 @@
+type thermald, domain;
+type thermald_exec, exec_type, file_type;
+
+allow thermald proc:file r_file_perms;
+allow thermald sysfs:file { read open };
+
+init_daemon_domain(thermald)
