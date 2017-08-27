@@ -188,3 +188,5 @@ WIFI_DRIVER_MODULE_ARG := "iface_name=wlan0 firmware_path=/system/etc/firmware/f
 # Use the non-open-source parts, if they're present
 -include vendor/asus/T00F/BoardConfigVendor.mk
 
+# Vendor Interface Manifest
+DEVICE_MANIFEST_FILE := device/asus/T00F/manifest.xml
