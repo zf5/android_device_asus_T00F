@@ -35,6 +35,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     libshim_audio \
     libtinycompress \
     libtinyalsa \
@@ -128,8 +130,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     keystore.clovertrail
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.clovertrail
 
 # Media
