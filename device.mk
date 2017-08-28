@@ -341,5 +341,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.opengles.version = 131072
 
+# Oreo Compatibility Library
+PRODUCT_PACKAGES += \
+	libocompat
 
 
