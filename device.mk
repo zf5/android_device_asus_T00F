@@ -345,4 +345,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
 	libocompat
 
-
+# PowerHAL
+PRODUCT_PACKAGES += \
+    power.redhookbay
