@@ -4,8 +4,8 @@
 
 on post-fs
     chmod 0660 /sys/class/rfkill/rfkill2/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill2/state
-    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill2/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill2/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill2/type
     mkdir /config/bt
     chown system bluetooth /config/bt
     chmod 0770 /config/bt
