@@ -354,3 +354,7 @@ PRODUCT_PACKAGES += \
 # PowerHAL
 PRODUCT_PACKAGES += \
     power.redhookbay
+
+# Launcher3
+PRODUCT_PACKAGES += \
+    Launcher3
