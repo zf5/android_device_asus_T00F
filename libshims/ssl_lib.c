@@ -27,7 +27,7 @@ struct ssl_protocol_method_st {
   void (*ssl_read_close_notify)(SSL *ssl);
   int (*ssl_write_app_data)(SSL *ssl, const void *buf_, int len);
   int (*ssl_dispatch_alert)(SSL *ssl);
-  long (*ssl_ctrl)(SSL *s, int cmd, long larg, void *parg);
+  //long (*ssl_ctrl)(SSL *s, int cmd, long larg, void *parg);
   long (*ssl_ctx_ctrl)(SSL_CTX *ctx, int cmd, long larg, void *parg);
   /* supports_cipher returns one if |cipher| is supported by this protocol and
    * zero otherwise. */
@@ -39,11 +39,11 @@ struct ssl_protocol_method_st {
   /* Write out handshake message */
   int (*do_write)(SSL *ssl);
 };
-
+/*
 long SSL_ctrl(SSL *s, int cmd, long larg, void *parg) {
   return s->method->ssl_ctrl(s, cmd, larg, parg);
  }
-
+*/
 long SSL_CTX_ctrl(SSL_CTX *ctx, int cmd, long larg, void *parg) {
   return ctx->method->ssl_ctx_ctrl(ctx, cmd, larg, parg);
  }
