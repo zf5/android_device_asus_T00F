@@ -164,6 +164,7 @@ lib/libmodem-audio-collection.so
 lib/libparameter.so
 lib/libproperty.so
 lib/libmamgr-xmm.so
+lib/libtinyalsa.so
 lib/libtinyxml.so
 lib/parameter-framework-plugins/Audio/libaudience-subsystem.so
 lib/parameter-framework-plugins/Audio/libimc-subsystem.so
