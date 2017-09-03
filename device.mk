@@ -64,6 +64,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     bspcapability \
+    libshim_camera \
     camera.redhookbay \
     Snap
 
@@ -97,7 +98,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 # GPS
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     libshim_gps
 
 PRODUCT_COPY_FILES += \
