@@ -251,6 +251,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
+    #android.hardware.sensors@1.0-impl \
     libshim_sensors
 
 PRODUCT_COPY_FILES += \
@@ -376,8 +377,3 @@ PRODUCT_PACKAGES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
-
-# Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl 
-
