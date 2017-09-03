@@ -184,6 +184,7 @@ service mmgr /system/bin/mmgr
     socket mmgr stream 660 system radio
     user system
     group radio cache inet misc system usb
+    onrestart restart ril-daemon
 
 # adding nvm manager
 service nvmmanager /system/bin/nvm_server
@@ -201,12 +202,11 @@ service ril-daemon /vendor/bin/hw/rild
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 # adding 2nd vendor ril instance in case of multi sim
-service ril-daemon1 /system/bin/rild -c 2
+service ril-daemon1 /vendor/bin/hw/rild -c 2
     class late_start
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user root
-    group radio cache inet misc audio log qcom_diag readproc wakelock
+    user radio
+    group radio cache inet misc audio log readproc wakelock
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service modem-c_main-sh /system/bin/init.class_main.sh
     class main
