@@ -444,7 +444,7 @@ bin/akmd09911
 bin/ZE500CL_GC2155_CONFIG
 bin/ZE500CL_HM2051_CONFIG
 bin/ZE500CL_T4K35_CONFIG
-lib/hw/sensors.redhookbay.so
+lib/hw/sensors.redhookbay.so:lib/sensors.vendor.redhookbay.so
 lib/hw/sensors.AKM.redhookbay.so
 lib/hw/sensors.PS_ALS.redhookbay.so
 lib/libcmdthread.so

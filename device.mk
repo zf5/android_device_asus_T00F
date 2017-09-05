@@ -250,8 +250,12 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    #android.hardware.sensors@1.0-impl \
-    libshim_sensors
+    android.hardware.sensors@1.0-impl \
+    libshim_sensors \
+    sensors.redhookbay
+
+PRODUCT_COPY_FILES += \
+    device/asus/T00F/configs/sensors/_hals.conf:system/vendor/etc/sensors/_hals.conf
 
 PRODUCT_COPY_FILES += \
     device/asus/T00F/configs/sensor_hal_config_default.xml:system/etc/sensor_hal_config_default.xml \
