@@ -93,6 +93,9 @@ endif
 # Hardware
 BOARD_HARDWARE_CLASS := device/asus/T00F/cmhw
 
+# Healthd
+BOARD_HAL_STATIC_LIBRARIES := libhealthd.clovertrail
+
 # Houdini: enable ARM codegen for x86
 BUILD_ARM_FOR_X86 := true
 
