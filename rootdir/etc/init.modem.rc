@@ -194,21 +194,18 @@ service nvmmanager /system/bin/nvm_server
     # TODO: Label these properly
 
 # adding 2nd nvm manager for DSDA
-service ril-daemon /system/bin/rild
+service ril-daemon /vendor/bin/hw/rild
     class late_start
-    socket rild stream 660 root radio
-    socket sap_uim_socket1 stream 660 bluetooth bluetooth
-    socket rild-debug stream 660 radio system
-    user root
-    group radio cache inet misc audio log qcom_diag readproc wakelock
+    user radio
+    group radio cache inet misc audio log readproc wakelock
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 # adding 2nd vendor ril instance in case of multi sim
-service ril-daemon1 /system/bin/rild -c 2
+service ril-daemon1 /vendor/bin/hw/rild -c 2
     class late_start
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user root
-    group radio cache inet misc audio log qcom_diag readproc wakelock
+    user radio
+    group radio cache inet misc audio log readproc wakelock
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service modem-c_main-sh /system/bin/init.class_main.sh
     class main
