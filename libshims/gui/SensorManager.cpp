@@ -62,9 +62,6 @@ void SensorManager::sensorManagerDied()
     mSensors.clear();
 }
 
-void _ZN7android9SingletonINS_13SensorManagerEE5sLockE() {
-}
-
 status_t SensorManager::assertStateLocked() {
     if (mSensorServer == NULL) {
         // try for one second
