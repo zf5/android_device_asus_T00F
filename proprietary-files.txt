@@ -267,13 +267,9 @@ vendor/firmware/01s5k8aay.drvb
 
 # DRM
 lib/libkeymaster.so
-lib/libdrmdecrypt.so
 lib/hw/keystore.clovertrail.so:lib/hw/keystore.vendor.clovertrail.so
-vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/mediadrm/libplayreadydrmplugin.so
 
 # EGL
 lib/libpvr2d.so
