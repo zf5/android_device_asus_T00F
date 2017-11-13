@@ -117,6 +117,7 @@ BOARD_EGL_CFG := device/asus/T00F/configs/egl.cfg
 INTEL_VA := true
 BUILD_WITH_FULL_STAGEFRIGHT := true
 BOARD_USES_VIDEO := true
+PRE_ION_X86:= true
 
 # enabled to carry out all drawing operations performed on a View's canvas with GPU for 2D rendering pipeline.
 USE_OPENGL_RENDERER := true
