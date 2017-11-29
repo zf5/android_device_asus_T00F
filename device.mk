@@ -96,9 +96,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.mapper@2.0-impl
 
-# Default OMX service to non-Treble
+# Default OMX service to Treble (to fix at least software codecs)
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.media.treble_omx=false
+    persist.media.treble_omx=true
 
 
 # GPS
