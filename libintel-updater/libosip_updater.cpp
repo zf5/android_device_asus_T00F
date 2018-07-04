@@ -12,12 +12,15 @@
 #include <common.h>
 #include <cutils/properties.h>
 #include <sys/mman.h>
+#include <string>
+#include <vector>
+#include <memory>
 
 extern "C" {
 int flash_image(void *data, unsigned sz, const char *name);
 }
 
-Value *FlashOSImage(const char *name, State * state, int argc, Expr * argv[])
+Value *FlashOSImage(const char *name, State * state, const std::vector<std::unique_ptr<Expr>>& argv)
 {
 	char* result = NULL;
 
@@ -57,7 +60,7 @@ Value *FlashOSImage(const char *name, State * state, int argc, Expr * argv[])
 		goto free;
 	}
 
-	funret = StringValue(strdup("t"));
+	funret = StringValue("t");
 
 free:
 	free(image_type);
