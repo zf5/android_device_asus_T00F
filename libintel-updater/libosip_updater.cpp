@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include <libgen.h>
 #include <edify/expr.h>
-#include <updater/updater.h>
+#include "updater/updater.h"
 #include <common.h>
 #include <cutils/properties.h>
 #include <sys/mman.h>
@@ -30,42 +30,41 @@ Value *FlashOSImage(const char *name, State * state, const std::vector<std::uniq
 
 	Value* partition_value;
 	Value* contents;
-	if (ReadValueArgs(state, argv, 2, &contents, &partition_value) < 0) {
+        std::vector<std::unique_ptr<Value>>* args;
+	if (!ReadValueArgs(state, argv, args)) {
 		return NULL;
 	}
 
-	char* partition = NULL;
+	std::string partition = NULL;
+        std::string contents2 = NULL;
 	if (partition_value->type != VAL_STRING) {
 		ErrorAbort(state, "partition argument to %s must be string", name);
-		goto exit;
+		return funret;
 	}
 
 	partition = partition_value->data;
-	if (strlen(partition) == 0) {
+	if (partition.length() == 0) {
 		ErrorAbort(state, "partition argument to %s can't be empty", name);
-		goto exit;
+		return funret;
 	}
-
-	if (contents->type == VAL_STRING && strlen((char*) contents->data) == 0) {
+        
+        contents2 = contents->data;
+	if (contents->type == VAL_STRING && contents2.length() == 0) {
 		ErrorAbort(state, "file argument to %s can't be empty", name);
-		goto exit;
+		return funret;
 	}
+        const char *сpartition = partition.c_str();
+	image_type = basename(сpartition);
 
-	image_type = basename(partition);
-
-	ret = flash_image(contents->data, contents->size, image_type);
+	ret = flash_image(&(contents->data), contents->data.length(), image_type);
 	if (ret != 0) {
 		ErrorAbort(state, "%s: Failed to flash image %s, %s.",
 			   name, image_type, strerror(errno));
-		goto free;
+		free(image_type);
 	}
 
 	funret = StringValue("t");
-
-free:
-	free(image_type);
-exit:
-	return funret;
+        return funret;
 }
 
 void Register_libosip_updater(void)
